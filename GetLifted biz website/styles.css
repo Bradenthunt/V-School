@@ -1,0 +1,77 @@
+* {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+h1, h3, h4 {
+    color: red;
+    display: block;
+    background-color: white;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+#lift-options {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    border: 3px solid red;
+    border-radius: 50px;
+}
+
+img {
+    height: 200px;
+    width: 50%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: red;
+}
+
+body {
+    background-image: url('https://thumbs.dreamstime.com/b/delivery-box-background-cargo-package-seamless-pattern-various-open-closed-cardboard-boxes-parcel-flat-line-icons-warehouse-175148460.jpg');
+}
+
+div, p, ul, form {
+    background-color: white;
+    font-size: 11pt;
+    padding: 5px;
+}
+
+footer {
+    background-color: red;
+}
+
+#contact-us {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#ourteam {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    height: 500px;
+}
+
+a.button {
+    background-color: red;
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 5px 250px 10px 250px;
+    font-size: 14pt;
+    display: block;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10px;
+}
