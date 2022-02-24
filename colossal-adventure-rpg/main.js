@@ -17,28 +17,28 @@ let enemy = {
     loot: []
 };
 
-console.log(`You can press 'p' at any time to check your loot.`)
-
-readline.keyIn(`Press 'w' to walk.`, {hideEchoBack: true, mask: ``, limit: `w`});
-
-while (key = `w`) {
-    let walkRisk = Math.floor(Math.random() * 10) + 1;
-
-    if (walkRisk % 3 === 0) {
-        console.log(`Something is off...`);
-        whichEnemy();
-        console.log(`A wild ${randomEnemy} appeared!`);
-        let action = readline.keyIn(`Oh no! How would you like to proceed? r - run, a - attack`, {hideEchoBack: true, mask: ``, limit: `ra`})
-        switch (action) {
-            case 'r':
-                runAwayChance();
-                break;
-            case 'a':
-                attackEnemy();
-                }   
-    } else {
-        readline.keyIn(`Press 'w' to keep walking.`, {hideEchoBack: true, mask: ``, limit: `w`});
-
+while (true) {
+    const key = readline.keyIn(`Press 'w' to walk or press 'p' to check your loot.`, {hideEchoBack: true, mask: ``, limit: `wp`});
+    if (key === 'p') {
+        lootInventory();
+    }
+    if (key === 'w') {
+        let walkRisk = Math.floor(Math.random() * 10) + 1;
+        if (walkRisk % 3 === 0) {
+            console.log(`Something is off...`);
+            whichEnemy();
+            console.log(`A wild ${randomEnemy} appeared!`);
+            let action = readline.keyIn(`Oh no! How would you like to proceed? r - run, a - attack`, {hideEchoBack: true, mask: ``, limit: `ra`})
+            switch (action) {
+                case 'r':
+                    runAwayChance();
+                    break;
+                case 'a':
+                    attackEnemy();
+                    }   
+        } else {
+            console.log('The aire of adventure is afoot. Keep walking!')
+        }
     }
 }
 
@@ -47,13 +47,13 @@ function whichEnemy() {
 
     if (enemyCalculator <= 3) {
         randomEnemy = `spider`;
-        enemy.loot = [`venom`, ` silk`];
+        enemy.loot = [`silk`];
     } else if (enemyCalculator > 3 && enemyCalculator < 6) {
         randomEnemy = `dragon`;
-        enemy.loot = [`scales`, ` fang`];
+        enemy.loot = [`scales`];
     } else if (enemyCalculator >= 6) {
         randomEnemy = `goblin`;
-        enemy.loot = [`gold`, ` dagger`];
+        enemy.loot = [`gold`];
     }
 };
 
@@ -70,58 +70,64 @@ function runAwayChance() {
 };
 
 function attackEnemy() {
-    let yourAttackDamageTotal = 0;
-    let enemyAttackDamageTotal = 0;
-    
-    do {
-        let yourAttackDamage = Math.floor(Math.random() * 100) + 1;
-        console.log(`You attack with all your might doing ${yourAttackDamage} damage!`);
-        yourAttackDamageTotal = yourAttackDamageTotal + yourAttackDamage;
+    while(player.hp > 0 && enemy.hp > 0) {
+        if (player.hp > 0) {
+            let yourAttackDamage = Math.floor(Math.random() * 100) + 1;
+            console.log(`You attack with all your might doing ${yourAttackDamage} damage!`);
+            enemy.hp = enemy.hp - yourAttackDamage;
+        }
+        if (enemy.hp > 0) {
+            let enemyAttackDamage = Math.floor(Math.random() * 100) + 1;
+            console.log(`The wild ${randomEnemy} attacks back doing ${enemyAttackDamage} damage!`);
+            player.hp = player.hp - enemyAttackDamage;
+        }
+    }
 
-        let enemyAttackDamage = Math.floor(Math.random() * 100) + 1;
-        console.log(`The wild ${randomEnemy} attacks back doing ${enemyAttackDamage} damage!`);
-        enemyAttackDamageTotal = enemyAttackDamageTotal + enemyAttackDamage;
-
-    } while (yourAttackDamageTotal < 100 || enemyAttackDamageTotal < 100);
-
-    if (yourAttackDamageTotal >= 100) {
+    if (enemy.hp <= 0) {
         lootEnemy();
+        player.hp = player.hp + 25;
         console.log(`You have successfully vanquished the wild ${randomEnemy}! You receive their ${enemy.loot} as loot!`);
-    } else if (enemyAttackDamageTotal >= 100) {
+    }
+
+    if (player.hp <= 0) {
         console.log(`You have met your demise O' Great ${player.name}. May your name be forever remembered in the legends of your people.`);
-        exit();
+        process.exit()
     }
 };
 
 function enemyAttacksRun() {
-    let yourAttackDamageTotal = 0;    
-    let enemyAttackDamageTotal = 0;
-
-    do {
-        let enemyAttackDamage = Math.floor(Math.random() * 100) + 1;
-        console.log(`The wild ${randomEnemy} attacks doing ${enemyAttackDamage} damage!`);
-        enemyAttackDamageTotal = enemyAttackDamageTotal + enemyAttackDamage;
+    while (player.hp > 0 && enemy.hp > 0) {
+        if (enemy.hp > 0) {
+            let enemyAttackDamage = Math.floor(Math.random() * 100) + 1;
+            console.log(`The wild ${randomEnemy} attacks doing ${enemyAttackDamage} damage!`);
+            player.hp = player.hp - enemyAttackDamage;
+        }
         
-        let yourAttackDamage = Math.floor(Math.random() * 100) + 1;
-        console.log(`You attack back with all your might doing ${yourAttackDamage} damage!`);
-        yourAttackDamageTotal = yourAttackDamageTotal + yourAttackDamage;
-    } while (yourAttackDamageTotal < 100 || enemyAttackDamageTotal < 100);
+        if (player.hp > 0) {
+            let yourAttackDamage = Math.floor(Math.random() * 100) + 1;
+            console.log(`You attack back with all your might doing ${yourAttackDamage} damage!`);
+            enemy.hp = enemy.hp - yourAttackDamage;
+        }
 
-    if (yourAttackDamageTotal >= 100) {
+    }
+
+    if (enemy.hp <= 0) {
         lootEnemy();
+        player.hp = player.hp + 25;
         console.log(`You have successfully vanquished the wild ${randomEnemy}! You receive their ${enemy.loot} as loot!`);
-    } else if (enemyAttackDamageTotal >= 100) {
+    }
+
+    if (player.hp <= 0) {
         console.log(`You have met your demise O' Great ${player.name}. May your name be forever remembered in the legends of your people.`);
-        exit();
+        process.exit()
     }
 };
 
 function lootEnemy() {
     player.loot.push(enemy.loot);
+    enemy.hp = 100
 };
 
 function lootInventory() {
-    do {
-    console.log(player);
-    } while (key = 'p');
+    console.log(`${name}, you currently have ${player.hp} hp and ${player.loot} in your loot.`);
 };
