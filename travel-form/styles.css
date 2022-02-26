@@ -1,0 +1,20 @@
+body {
+    background-image:url(https://thumbs.dreamstime.com/b/paper-airplane-seamless-pattern-vintage-design-white-background-vector-cartoon-illustration-modern-color-origami-wallpaper-154914470.jpg);
+}
+
+h1, p {
+    background-color: lightskyblue;
+    display: flex;
+    justify-content: center;
+}
+
+#travel-form {
+    background-color: lightskyblue;
+    margin-left: 33%;
+    margin-right: 33%;
+}
+
+div {
+    display: inline-block;
+    padding: 10px;
+}

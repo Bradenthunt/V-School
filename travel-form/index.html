@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="styles.css" rel="stylesheet">
+    <title>Travel Form</title>
+</head>
+<body>
+    <h1>Welcome to Hunt Airways!</h1>
+    <p>Please fill out the folowing form so we can make your trip as pleasurable as possible!</p>
+    <form id="travel-form">
+        <div>
+            <label for="first-name">First Name</label>
+            <input type="text" name="first-name">
+        </div>
+        <label for="last-name">Last Name</label>
+        <input type="text" name="last-name">
+        <br>
+        <label for="age">Age</label>
+        <input type="number" name="age">
+        <br>
+        <label for="gender">Gender</label>
+        <br>
+        <input type="radio" name="gender" value="Male" id="male">
+        <label for="male">Male</label>
+        <br>
+        <input type="radio" name="gender" value="Female" id="female">
+        <label for="female">Female</label>
+        <br>
+        <label for="where">Where to?</label>
+        <select name="travel-location">
+            <option value="Las Vegas">Las Vegas</option>
+            <option value="Denver">Denver</option>
+            <option value="Los Angeles">Los Angeles</option>
+        </select>
+        <br>
+        <label for="diet">Dietary Restrictions</label>
+        <br>
+        <input class="diet" type="checkbox" name="dairy-free" id="dairy-free" value="Dairy-free">
+        <label for="dairy-free">Dairy-free</label>
+        <br>
+        <input class="diet" type="checkbox" name="gluten-free" id="gluten-free" value="Gluten-free">
+        <label for="gluten-free">Gluten-free</label>
+        <br>
+        <input class="diet" type="checkbox" name="other" id="other" value="other">
+        <label for="other">Other</label>
+        <input type="text" placeholder="Please explain" name="other-explain" id="other-explain">
+        <br>
+        <button type="button" id="submit">Submit</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>
