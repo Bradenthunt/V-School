@@ -1,0 +1,29 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#add-section {
+    text-align: center;
+    background-color: rgb(30, 166, 190);
+    padding: 20px;
+
+}
+
+#sub-section {
+    text-align: center;
+    background-color: rgb(252, 67, 67);
+    padding: 20px;
+
+}
+
+#mul-section {
+    text-align: center;
+    background-color: rgb(233, 38, 233);
+    padding: 20px;
+
+}
