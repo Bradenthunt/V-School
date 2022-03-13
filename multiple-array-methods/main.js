@@ -1,3 +1,9 @@
+// Using the provided `peopleArray` (bottom of this article), write a function that:
+
+// 1. Returns a list of everyone older than 18, which is
+// 2. sorted alphabetically by last name, and where
+// 3. each name and age is embedded in a string that looks like an HTML `<li>` element.
+
 var peopleArray = [
     {
         firstName: "Sarah",
@@ -36,14 +42,15 @@ var peopleArray = [
     }
 ]
 
-const sortedOfAge = peopleArray.reduce(function(final, people){
-    if (people.age > 18) {
-        final.people.map(function(name){
-            return `<li>${firstName} ${lastName} is ${age}</li>`
-        })
-    }
-    
-    return final
+const filteredByAge = peopleArray.filter(function(peopleArray){
+    return peopleArray.age >= 18
+
 })
 
-console.log(sortedOfAge)
+const sortedAlphabetically = filteredByAge.sort((a, b) => (a.lastName > b.lastName) ? 1 : -1)
+
+const mappedOfAge = sortedAlphabetically.map(function(sortedAlphabetically){
+    return `<li>${sortedAlphabetically.firstName} ${sortedAlphabetically.lastName} is ${sortedAlphabetically.age}</li>`
+})
+
+console.log(mappedOfAge)
