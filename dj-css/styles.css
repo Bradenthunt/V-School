@@ -4,44 +4,82 @@ h1 {
 }
 
 #box-grid {
-    display: grid;
-    grid-template-columns: 5, 1fr;
-    grid-template-rows: 3, 1fr;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    gap: 20px;
 }
 
 #box1 {
     background-color: red;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    /* transition: ; */
+    width: 200px;
+    height: 200px;
+    transition: ease-in 1s;
+}
+
+#box1:hover {
+    background-color: blue;
+    width: 50px;
 }
 
 #box2 {
     background-color: orange;
-    /* transition: ; */
+    width: 200px;
+    height: 200px;
+    transition: ease-out 1s;
+}
 
+#box2:hover {
+    border: 5px dotted blue;
+    height: 300px;
 }
 
 #box3 {
     background-color: yellow;
-    /* transition: ; */
+    width: 200px;
+    height: 200px;
+    transition: ease-in-out 1s;
+}
 
+#box3:hover {
+    background-color: purple;
+    width: 75px;
 }
 
 #box4 {
     background-color: green;
-    /* transition: ; */
-
+    width: 200px;
+    height: 200px;
+    align-self: flex-end;
+    transition: ease-in 1s;
+}
+#box4:hover {
+    border-radius: 100px;
+    height: 250px;
 }
 
 #box5 {
     background-color: blue;
-    /* transition: ; */
-
+    width: 200px;
+    height: 200px;
+    align-self: flex-end;
+    transition: ease-out 1s;
+}
+#box5:hover {
+    background-color:gold;
+    opacity: 0.5;
+    width: 300px;
 }
 
 #box6 {
     background-color: violet;
-    /* transition: ; */
-
+    width: 200px;
+    height: 200px;
+    align-self: flex-end;
+    transition: ease-in-out 1s;
+}
+#box6:hover {
+    opacity: 0.25;
+    height: 50px;
 }
