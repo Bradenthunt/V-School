@@ -16,7 +16,7 @@
 
 header {
     background-image: url(contours@2x.png), url(noise.png), url(gridlines.png), url(huntington.jpeg);
-    background-size: 50% auto, auto, auto, cover;
+    /* background-size: 50% auto, auto, auto, cover; */
     color: white;
     font-family: 'Julius Sans One';
     font-size: 15px;
@@ -53,7 +53,7 @@ body {
     margin: 0;
     padding: 45px;
     text-align: center;
-    width: 100%;
+    width: 100vw;
 }
 
 #logo {
@@ -138,7 +138,7 @@ span {
     grid-row: 6 / 7;
     margin: 0;
     padding: 3em 0;
-    width: 100%;
+    width: 100vw;
 }
 
 #designs {

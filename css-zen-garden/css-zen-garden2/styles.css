@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Julius Sans One';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/juliussansone/v12/1Pt2g8TAX_SGgBGUi0tGOYEga5WOwnsXy6KHHg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/librebaskerville/v13/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qNXaxMaC82U-ro.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 230px auto auto auto auto auto;
+}
+
+#top-picture {
+    background-image: url(huntington.jpeg), url(contours@2x.png), url(gridlines.png), url(noise.png);
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    /* display: grid;
+    grid-template-columns: ; */
+}
+
+/* #title-header {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#view-all-designs {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+} */
+
+#white-bkgrnd {
+    background-color: white;
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+
+#intro {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+#list1 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+#bamboo-bkgrnd {
+    background-image: url(bamboo.png), url(contours@2x.png), url(gridlines.png); 
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+}
+
+#middle {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+
+#list2 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+#white-bkgrnd2 {
+    background-color: white;
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+}
+
+#final {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+}
+
+#blank {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+}
+
+#koi-picture {
+    background-image: url(koi.jpeg), url(contours@2x.png), url(gridlines.png);
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+}
+
+#social {
+    background-color: teal;
+    grid-column: 1 / 4;
+    grid-row: 6 / 7;
+}
