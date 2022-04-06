@@ -6,30 +6,34 @@ class Player {
         this.hasStar = hasStar
     }
 
-    setName() {
-        let named = Math.floor(Math.random() * 2 + 0)
-
-        if (named = 0) {
-            this.name = `Mario`
-        } else if (named = 1) {
-            this.name = `Luigi`
-        }
+    setName(namePicked) {
+        this.name = namePicked
     }
 
     gotHit() {
+        if (this.hasStar = true) {
+            this.hasStar = false
+
+            console.log(`Your star saved you!`)
+        }
+        
         if (this.status = `Powered Up`) {
             this.status = `Big`
-        }
 
+            console.log(`Ouch! There goes my powerup!`)
+        }
+        
         if (this.status = `Big`) {
             this.status = `Small`
-        }
 
+            console.log(`Ouch! Now I'm a smol boi..`)
+        }
+        
         if (this.status = `Small`) {
             this.status = `Dead`
 
-            clearInterval(myGame)
             console.log(`You have died! GAME OVER`)
+            clearInterval(myGame)
         }
     }
 
@@ -50,14 +54,14 @@ class Player {
     }
 
     addCoin() {
-        this.totalCoins = totalCoins + 1
+        this.totalCoins = this.totalCoins + 1
     }
 
     print() {
         console.log(`Name: ${this.name}
         Coins: ${this.totalCoins}
         Status: ${this.status}
-        Star: ${this.hasStar}`)
+        `)
     }
 }
 
@@ -65,17 +69,22 @@ let myGame = setInterval(function getRandomNumber() {
     let action = Math.floor(Math.random() * 3 + 0)
 
     if (action = 0) {
-        Player.gotHit()
-        Player.print()
+        myPlayer.gotHit()
+        myPlayer.print()
     }
-
+    
     if (action = 1) {
-        Player.gotPowerup()
-        Player.print()
+        myPlayer.gotPowerup()
+        myPlayer.print()
     }
-
+    
     if (action = 2) {
-        Player.addCoin()
-        Player.print()
+        myPlayer.addCoin()
+        myPlayer.print()
     }
 }, 1000)
+
+const myPlayer = new Player(`Mario`, 0, `Small`, false)
+
+// let action = Math.floor(Math.random() * 3 + 0)
+//     console.log(action)
