@@ -11,45 +11,43 @@ class Player {
     }
 
     gotHit() {
-        if (this.hasStar = true) {
-            this.hasStar = false
+        // if (this.hasStar = true) {
+        //     this.hasStar = false
 
-            console.log(`Your star saved you!`)
-        }
-        
-        if (this.status = `Powered Up`) {
-            this.status = `Big`
+        //     console.log(`Your star saved you!`)
+        // }
 
-            console.log(`Ouch! There goes my powerup!`)
-        }
-        
-        if (this.status = `Big`) {
-            this.status = `Small`
+        switch (this.status) {
+            case this.status = `Powered Up`:
+                this.status = `Big`
 
-            console.log(`Ouch! Now I'm a smol boi..`)
-        }
-        
-        if (this.status = `Small`) {
-            this.status = `Dead`
+                console.log(`Ouch! There goes my powerup!`)
+                break;
+            case this.status = `Big`:
+                this.status = `Small`
 
-            console.log(`You have died! GAME OVER`)
-            clearInterval(myGame)
+                console.log(`Ouch! Now I'm a smol boi..`)
+                break;
+            case this.status = `Small`:
+                this.status = `Dead`
+
+                console.log(`You have died! GAME OVER`)
+                clearInterval(myGame)
         }
     }
 
     gotPowerup() {
-        if (this.status = `Small`) {
-            this.status = `Big`
-        }
-
-        if (this.status = `Big`) {
-            this.status = `Powered Up`
-        }
-
-        if (this.status = `Powered Up`) {
-            this.hasStar = true
-
-            console.log(`Congrats! You got a star!`)
+        switch (this.status) {
+            case this.status = `Small`:
+                this.status = `Big`
+                break;
+            case this.status = `Big`:
+                this.status = `Powered Up`
+                break;
+            case this.status = `Powered Up`:
+                this.hasStar = true
+    
+                console.log(`Congrats! You got a star!`)
         }
     }
 
@@ -68,23 +66,19 @@ class Player {
 let myGame = setInterval(function getRandomNumber() {
     let action = Math.floor(Math.random() * 3 + 0)
 
-    if (action = 0) {
-        myPlayer.gotHit()
-        myPlayer.print()
-    }
-    
-    if (action = 1) {
-        myPlayer.gotPowerup()
-        myPlayer.print()
-    }
-    
-    if (action = 2) {
-        myPlayer.addCoin()
-        myPlayer.print()
-    }
-}, 1000)
+    switch (action) {
+        case 0:
+            myPlayer.gotHit()
+            myPlayer.print()
+            break;
+        case 1:
+            myPlayer.gotPowerup()
+            myPlayer.print()
+            break;
+        case 2:
+            myPlayer.addCoin()
+            myPlayer.print()
+    }   
+}, 1500)
 
 const myPlayer = new Player(`Mario`, 0, `Small`, false)
-
-// let action = Math.floor(Math.random() * 3 + 0)
-//     console.log(action)
