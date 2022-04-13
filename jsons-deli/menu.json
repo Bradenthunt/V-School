@@ -1,0 +1,62 @@
+{
+    "appetizers": [
+        {
+            "name": "Cheese Bread",
+            "ingredients": ["cheddar cheese", "bread"],
+            "description": "light, fluffy bread covered and infused with cheddar cheese"
+        },
+        {
+            "name": "Fried Pickles",
+            "ingredients": ["pickles", "breading"],
+            "description": "tangy dill pickle slices breaded and fried to perfection"
+        }
+    ],
+    "cold sandwiches": [
+        {
+            "name": "H & C",
+            "ingredients": ["bread", "ham", "cheese", "tomato", "bacon"],
+            "description": "a spin on the classic ham & cheese"
+        },
+        {
+            "name": "TBA",
+            "ingredients": ["bread", "turkey", "bacon", "avocado", "tomato", "mustard"],
+            "description": "a mouth-watering turkey, bacon, & avocado sandwich"
+        }
+    ],
+    "hot sandwiches": [
+        {
+            "name": "Meatball Marinara",
+            "ingredients": ["bread", "marinara", "meatballs", "provolone"],
+            "description": "a toasted meatball marinara sandwich that will warm up your soul"
+        },
+        {
+            "name": "Philly Cheesesteak",
+            "ingredients": ["bread", "steak", "cheese", "green peppers", "cheese sauce"],
+            "description": "a cheese-your-own philly cheesesteak with options for whichever cheese you'd like"
+        }
+    ],
+    "desserts": [
+        {
+            "name": "Chocolate Chip Brownie",
+            "ingredients": ["brownie mix", "eggs", "canola oil", "chocolate chips", "white chocolate chips"],
+            "description": "a decadent double chocolate chip brownie to satisfy any sweet tooth"
+        },
+        {
+            "name": "Snickerdoodle",
+            "ingredients": ["cinnamon", "eggs", "sugar", "flour", "butter", "salt", "brown sugar", "vanilla"],
+            "description": "a soft & chewy snickerdoodle like you've never had before"
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Raspberry Lemonade",
+            "ingredients": ["water", "sugar", "lemons", "raspberries"],
+            "description": "a sweet, tangy summertime beverage to whet your whistle"
+        },
+        {
+            "name": "Coca Cola",
+            "ingredients": ["carbonated water", "high fructose corn syrup", "caramel color", "phosphoric acid", "natural flavors", "caffeine"],
+            "description": "a smooth, tasty classic cola"
+        }
+    ]
+}
