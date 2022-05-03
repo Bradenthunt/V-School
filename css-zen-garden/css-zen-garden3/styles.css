@@ -45,11 +45,14 @@ img {
 
 h1 {
     color: white;
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 h2 {
-    color: white;
+    color: rgba(255,255,255,0.6);
     font-style: italic;
+    font-weight: lighter;
+    font-size: 25px;
 }
 
 #top-right {
@@ -59,7 +62,7 @@ h2 {
     align-items: center;
     color: white;
     background-color: rgba(138,188,159,0.2);
-
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 #second {
@@ -70,8 +73,11 @@ h2 {
 #second-left {
     grid-column: 1 / 2;
     width: 75%;
-    padding-left: 14%;
-    padding-right: 11%;
+    padding: 5% 11% 5% 14%;
+}
+
+p {
+    line-height: 2;
 }
 
 h3 {
@@ -82,6 +88,30 @@ h3 {
 #second-right {
     grid-column: 2 / 3;
     background-color: rgba(138,188,159,0.2);
+    font-style: italic;
+    font-family: 'Libre Baskerville';
+    color: #c0cac3;
+    padding-left: 15%;
+}
+
+.style-title {
+    font-family: 'Julius Sans One', sans-serif;
+    font-style: normal;
+    color: #607476;
+    font-size: 19px;
+}
+
+.top-border {
+    margin-top: 20px;
+    border-top: 1px solid #d9e3dc;
+}
+
+.style-creator {
+    font-family: 'Libre Baskerville', sans-serif;
+    font-style: normal;
+    color: #616857;
+    font-size: 14px;
+    /* padding-bottom: 20px; */
 }
 
 #third {
@@ -95,14 +125,26 @@ h3 {
 #third-left {
     grid-column: 1 / 2;
     width: 75%;
-    padding-left: 14%;
-    padding-right: 11%;
+    padding: 5% 11% 5% 14%;
 }
 
 #third-right {
     grid-column: 2 / 3;
     background-color: rgba(138,188,159,0.2);
+    font-family: 'Julius Sans One', sans-serif;
+    color: #607476;
+}
 
+#designs-container {
+    margin: 25% 25% 10% 20%;
+}
+
+.top-border2 {
+    border-top: 1px solid #a0b9ad;
+}
+
+.bottom-border {
+    border-top: 1px solid #a0b9ad;
 }
 
 #fourth {
@@ -113,8 +155,7 @@ h3 {
 #fourth-left {
     grid-column: 1 / 2;
     width: 75%;
-    padding-left: 14%;
-    padding-right: 11%;
+    padding: 5% 11% 5% 14%;
 }
 
 #fourth-right {
@@ -130,6 +171,12 @@ h3 {
     background-image: url(koi.jpeg);
     color: white;
     height: 300px;
+    font-size: 32px;
+}
+
+#fifth > p {
+    text-align: center;
+    margin: 10% 15%;
     font-size: 32px;
 }
 
