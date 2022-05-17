@@ -20,6 +20,9 @@ body {
     font-family: 'Libre Baskerville';
     color:#325050;
     font-size: 19px;
+    display: grid;
+    grid-template-columns: 66% 33%;
+    grid-template-rows: auto auto auto auto auto auto;
 }
 
 #top {
@@ -28,6 +31,8 @@ body {
     grid-template-columns: 66% 33%;
     height: 300px;
     border-top: 10px solid rgba(19, 67, 71, 0.9);
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
 }
 
 #top-left {
@@ -68,12 +73,13 @@ h2 {
     font-family: 'Julius Sans One', sans-serif;
 }
 
-#second {
+/* #second {
     display: grid;
     grid-template-columns: 66% 33%;
-}
+} */
 
 #second-left {
+    grid-row: 2 / 3;
     grid-column: 1 / 2;
     width: 75%;
     padding: 5% 11% 5% 14%;
@@ -121,20 +127,22 @@ h3 {
 }
 
 #third {
-    display: grid;
-    grid-template-columns: 66% 33%;
     height: auto;
     background-image: url(bamboo.png);
     background-color: rgba(138,188,159,0.5);
+    grid-row: 3 / 4;
+    grid-column: 1 / 3;
 }
 
 #third-left {
+    grid-row: 3 / 4;
     grid-column: 1 / 2;
     width: 75%;
     padding: 5% 11% 5% 14%;
 }
 
 #third-right {
+    grid-row: 3 / 4;
     grid-column: 2 / 3;
     background-color: rgba(138,188,159,0.2);
     font-family: 'Julius Sans One', sans-serif;
@@ -153,18 +161,20 @@ h3 {
     border-top: 1px solid #a0b9ad;
 }
 
-#fourth {
+/* #fourth {
     display: grid;
     grid-template-columns: 66% 33%;
-}
+} */
 
 #fourth-left {
+    grid-row: 4 / 5;
     grid-column: 1 / 2;
     width: 75%;
     padding: 5% 11% 5% 14%;
 }
 
 #fourth-right {
+    grid-row: 4 / 5;
     grid-column: 2 / 3;
     background-color: rgba(138,188,159,0.2);
 
@@ -179,6 +189,8 @@ h3 {
     height: 300px;
     font-size: 32px;
     font-style: italic;
+    grid-row: 5 / 6;
+    grid-column: 1 / 3;
 }
 
 #fifth > p {
@@ -198,6 +210,9 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-row: 6 / 7;
+    grid-column: 1 / 3;
+
 }
 
 #icon-container {
@@ -222,6 +237,7 @@ h3 {
 
 @media only screen and (max-width: 768px) {
     body {
+        overflow-x: hidden;
         display: grid;
         grid-template-rows: auto auto auto auto auto auto auto auto auto;
         grid-template-columns: 100vw;        
@@ -252,18 +268,29 @@ h3 {
         grid-row: 3 / 4;
         grid-column: 1 / 2;
         width: 100vw;
+        padding: 5% 10%;
+    }
+
+    #third {
+        background: none;
     }
 
     #third-left {
         grid-row: 4 / 5;
         grid-column: 1 / 2;
         width: 100vw;
+        background-image: url(bamboo.png);
+        background-color: rgba(138,188,159,0.5);
+        padding: 5% 10%;
+
     }
 
     #fourth-left {
         grid-row: 5 / 6;
         grid-column: 1 / 2;
         width: 100vw;
+        padding: 5% 10%;
+
     }
 
     #fifth {
@@ -276,17 +303,185 @@ h3 {
         grid-row: 7 / 8;
         grid-column: 1 / 2;
         width: 100vw;
+        height: 150px;
     }
 
     #second-right {
         grid-row: 8 / 9;
         grid-column: 1 / 2;
         width: 100vw;
+        padding: 0;
     }
 
     #third-right {
         grid-row: 9 / 10;
         grid-column: 1 / 2;
         width: 100vw;
+        background-image: url(bamboo.png);
+        background-color: rgba(138,188,159,0.5);
+        padding: 0;
+        margin: 0;
+    }
+
+    #icon-container {
+        width: 90%;
+    }
+
+    .needs-circle {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 100%;
+        padding: 10px;
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+    }
+    
+    .has-circle {
+        font-size: 50px;
+    }
+
+    #designs-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto auto;
+        line-height: 10%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #design1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+    }
+
+    #design2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+    }
+
+    #design3 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+
+    }
+
+    #design4 {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+
+    }
+
+    #design5 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+
+    }
+
+    #design6 {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+
+    }
+
+    #design7 {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+
+    }
+
+    #design8 {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+        border-top: 1px solid #d9e3dc;
+        padding-bottom: 20px;
+        padding-left: 20%;
+
+
+    }
+
+    .top-border, .top-border2, .bottom-border {
+        border: none;
+        margin: 0;
+    }
+
+    #resources-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    #resource1 {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        border-top: 1px solid #a0b9ad;
+        padding: 20px 53px;
+        margin: 0;
+    }
+
+    #resource2 {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+        border-top: 1px solid #a0b9ad;
+        padding: 20px 53px;
+        margin: 0;
+
+    }
+
+    #resource3 {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        border-top: 1px solid #a0b9ad;
+        padding: 20px 53px;
+        margin: 0;
+
+
+    }
+
+    #resource4 {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+        border-top: 1px solid #a0b9ad;
+        padding: 20px 53px;
+        margin: 0;
+
+    }
+
+    #resource5 {
+        grid-row: 3 / 4;
+        grid-column: 1 / 3;
+        border-top: 1px solid #a0b9ad;
+        padding: 20px 53px;
+        margin: 0;
+
     }
 }
