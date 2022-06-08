@@ -1,0 +1,142 @@
+* {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header {
+  display: block;
+  background-image: url(https://startbootstrap.github.io/startbootstrap-clean-blog/assets/img/home-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: white;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: 20px;
+}
+
+.nav--title {
+  margin-right: auto;
+  font-weight: 800;
+}
+
+.nav--items {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  font-size: 12px;
+  margin-top: 35px;
+}
+
+.nav--items > li {
+  margin-right: 30px;
+  font-weight: 800;
+}
+
+.blog--title--pair {
+  padding: 100px 0 150px;
+}
+
+.blog--title {
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+.blog--subtitle {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.post--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px 25% 0;
+}
+
+.blog--post {
+  border-bottom: solid 1px #dee2e6;
+}
+
+.blog--post--title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #212529;
+  margin-bottom: 10px;
+}
+
+.blog--post--subtitle {
+  font-weight: 300;
+  font-size: calc(1.3rem + 0.6vh);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.posted {
+  font-size: 18px;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.posted--author {
+  color: #212529;
+}
+
+.button--container {
+  margin: 30px 25%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  color: #fff;
+  background-color: #0085A1;
+  border-color: #0085A1;
+  border: 1px solid transparent;
+  font-weight: 800;
+  padding: 16px 28px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.footer {
+  border-top: 1px solid #dee2e6;
+  padding: 48px 0;
+}
+
+.social--links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.social--links > li {
+  margin-right: 30px;
+}
+
+.copyright {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}

@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.page--title {
+  background-color: royalblue;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.page--title--text {
+  margin: 0;
+}
+
+.spots--container {
+  margin: 30px 25%;
+}
+
+.spots--card--full {
+  border-radius: 10px;
+  background-color: bisque;
+}
+
+.spots--card {
+  margin-bottom: 20px;
+  display: flex;
+  margin-right: auto;
+}
+
+.spots--card--top {
+  display: flex;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.spots--place {
+  justify-content: flex-start;
+}
+
+.spots--cost {
+  background-color: lightgray;
+  color: green;
+  padding: 5px;
+  border-radius: 7px;
+  width: 40px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.spots--price {
+  padding: 20px;
+}
+
+.spots--time {
+  margin-left: auto;
+  padding: 20px;
+}
+
+.background-spring {
+  background-color: pink;
+}
+
+.background-summer {
+  background-color: greenyellow;
+}
+
+.background-fall {
+  background-color: orange;
+}
+
+.background-winter {
+  background-color: cornflowerblue;
+}
+
+.copyright {
+  font-style: italic;
+  text-align: center;
+}

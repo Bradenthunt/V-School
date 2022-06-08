@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.friend--list {
+  margin: 30px 30%;
+}
+
+.friend--card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: aquamarine;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.friend--card--top {
+  display: flex;
+  align-items: baseline;
+  padding: 0 100px;
+}
+
+.friend--name {
+  margin-right: auto;
+}
+
+.friend--pets {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 20px;
+}
