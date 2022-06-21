@@ -13,12 +13,12 @@ function getShifted(shift) {
 }
 
 function encode(input) {
-    let result = "";
+    let result = '';
     for (let i = 0; i < input.length; i++){
         let index = alphabet.indexOf(input[i])
         result += newAlpha[index]
     }
-    console.log(result)
+    console.log(`Here is your encoded message: ${result}`)
 }
 
 getShifted(shift)
