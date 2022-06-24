@@ -6,6 +6,8 @@ const Context = React.createContext()
 function ContextProvider(props) {
 
     const [uglyThingsArr, setUglyThingsArr] = useState([])
+    const [editing, setEditing] = useState()
+
 
     React.useEffect(() => {
         axios
@@ -13,41 +15,61 @@ function ContextProvider(props) {
           .then(res => setUglyThingsArr(res.data))
     }, [])
 
-    // NOT POSTING TO API, not sure how to pass form values into it
-    function addUglyThing() {
+    function addUglyThing(e) {
+        e.preventDefault()
 
-        let newUglyThing = {
-            title: uglyThingsArr.title,
-            description: uglyThingsArr.description,
-            imgUrl: uglyThingsArr.imgUrl
+        const Form = document.uglyform
+
+        const newUglyThing = {
+            title: Form.title.value,
+            description: Form.description.value,
+            imgUrl: Form.imgUrl.value
         }
 
         axios
-            .post('https://api.vschool.io/bradenthunt/thing', {newUglyThing})
-            .then(() => {setUglyThingsArr(prevUglyThings => {
-                return [{...prevUglyThings}, {newUglyThing}]
-            })})
-        
+            .post('https://api.vschool.io/bradenthunt/thing', newUglyThing)
+            .then(res => setUglyThingsArr(prevUglyThings => [...prevUglyThings, res.data]))
+            .catch(err => console.log(err))
+
+        Form.title.value = ''
+        Form.description.value = ''
+        Form.imgUrl.value = ''
     }
 
-    function updateUglyThing(e) {
+    function updateUglyThing(title, description, imgUrl, index, _id) {
 
-        const {name, value} = e.target
+        const edit = {
+            title: title,
+            description: description,
+            imgUrl: imgUrl
+        }
 
         axios
-            .put(`https://api.vschool.io/bradenthunt/thing/${uglyThingsArr._id}`, {
-                ...uglyThingsArr,
-                [name]: value
+            .put(`https://api.vschool.io/bradenthunt/thing/${_id}`, edit)
+            .then((res) => {
+                let prevUglyThings = [...uglyThingsArr]
+
+                prevUglyThings[index] = res.data
+
+                setUglyThingsArr(prevUglyThings)
             })
-            .then(res => console.log(res))
+            .catch(err => console.log(err))
+
+        setEditing()
     }
 
-    function removeUglyThing(uglyThingsArr) {
-
+    function removeUglyThing(_id) {
+        
         axios
-            .delete(`https://api.vschool.io/bradenthunt/thing/${uglyThingsArr._id}`)
-            .then(() => {
-                alert("Ugly thing deleted!")
+            .delete(`https://api.vschool.io/bradenthunt/thing/${_id}`)
+            .then((res) => {
+                let prevUglyThings = [...uglyThingsArr]
+
+                const filteredUglyThings = prevUglyThings.filter(thing => {
+                    return thing._id != _id
+                })
+
+                setUglyThingsArr(filteredUglyThings)
             })
             .catch(err => console.log(err))
 
@@ -56,9 +78,12 @@ function ContextProvider(props) {
     return (
         <Context.Provider value={{
             uglyThingsArr,
+            setUglyThingsArr,
             addUglyThing,
             removeUglyThing,
-            updateUglyThing
+            updateUglyThing,
+            editing,
+            setEditing
         }}>
             {props.children}
         </Context.Provider>

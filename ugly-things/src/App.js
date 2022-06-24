@@ -8,12 +8,10 @@ export default function App() {
 
   const {uglyThingsArr} = useContext(Context)
 
-  console.log(uglyThingsArr)
-
-  const listOfUggos = uglyThingsArr.map(thing => <Card key={thing._id}/>)
+  const listOfUggos = uglyThingsArr.map((thing, index) => <Card key={thing._id} index={index} {...thing}/>)
 
   return (
-    <div className="App">
+    <div>
       <Header />
       <Form />
       {listOfUggos}

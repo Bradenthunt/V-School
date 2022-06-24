@@ -33,21 +33,29 @@ input {
 }
 
 .card {
-  border: solid 5px lightslategray;
+  border: dotted 5px black;
+  background-color: lightblue;
   border-radius: 10%;
   width: 50%;
   margin: 20px 25%;
   padding: 10px;
+  height: 400px;
 }
 
 .card--title, .card--description {
   text-align: center;
 }
 
+.card--img--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card--img {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  max-width: 80%;
+  height: 200px;
+  background-size: cover;
 }
 
 .card--buttons {
@@ -57,4 +65,12 @@ input {
   grid-template-columns: 25% 25%;
   grid-template-rows: auto;
   gap: 20px;
+}
+
+.edit--form {
+  margin: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

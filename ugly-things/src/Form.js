@@ -9,7 +9,11 @@ export default function Form() {
     } = useContext(Context)
 
     return (
-        <form className="form" onSubmit={addUglyThing}>
+        <form 
+            className="form" 
+            name="uglyform" 
+            onSubmit={addUglyThing}
+        >
             <h2>Put Your Ugly Here</h2>
             <input 
                 required
@@ -17,7 +21,7 @@ export default function Form() {
                 type="text"
                 placeholder="Title"
                 value={uglyThingsArr.title}
-                // onChange={e.target.value}
+                onChange={(e) => e.target.value}
             />
             <input 
                 required
@@ -25,6 +29,7 @@ export default function Form() {
                 type="text"
                 placeholder="Description"
                 value={uglyThingsArr.description}
+                onChange={(e) => e.target.value}
             />
             <input 
                 required
@@ -32,6 +37,7 @@ export default function Form() {
                 type="url"
                 placeholder="Image URL"
                 value={uglyThingsArr.imgUrl}
+                onChange={(e) => e.target.value}
             />
             <button>Submit</button>
         </form>
