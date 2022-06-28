@@ -29,8 +29,7 @@ export default function Overview() {
         vehicle,
         accessToken,
         batteryPercentage,
-        setBatteryPercentage,
-        getColor
+        setBatteryPercentage
     } = useContext(Context)
 
     const [odometer, setOdometer] = useState(0)
@@ -76,11 +75,11 @@ export default function Overview() {
         axios
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/vehicle_config`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
-                    console.log(res.data.response)
-                    console.log(res.data.response.car_type)
+                    // console.log(res.data.response)
+                    // console.log(res.data.response.car_type)
                     setCarModel(res.data.response.car_type)
 
-                    console.log(res.data.response.exterior_color)
+                    // console.log(res.data.response.exterior_color)
                     setCarColor(res.data.response.exterior_color)
 
                 })
@@ -111,7 +110,7 @@ export default function Overview() {
                     <h1>{vehicle.display_name}</h1>
                     <h2>{vehicle.vin}</h2>
                     <h2>{Math.floor(odometer)} miles</h2>
-                    <h2 style={{color: getColor}}>{batteryPercentage}%</h2>
+                    <h2 style={{color: batteryPercentage > 65 ? 'green' : batteryPercentage < 35 ? 'red' : 'yellow', fontWeight: 800}}>{batteryPercentage}%</h2>
                 </div>
                 <img className="overview--vehicle--image" src={colorCars?.[carModel]?.[carColor]} />
             </div>

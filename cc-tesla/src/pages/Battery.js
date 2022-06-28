@@ -50,7 +50,9 @@ export default function Battery() {
                 <div className="battery--top">
                     <h2>Battery <i className="fa-solid fa-bolt"></i></h2>
                     <p>Current battery level: <span style={{color: batteryPercentage > 65 ? 'green' : batteryPercentage < 35 ? 'red' : 'yellow', fontWeight: 800}}>{batteryPercentage}%</span></p>
-                    <p>Current range: <span style={{color: chargeInfo.battery_range > 210 ? 'green' : chargeInfo.battery_range < 114 ? 'red' : 'yellow', fontWeight: 800}}>{chargeInfo.battery_range}mi</span></p> 
+                    <p>Current range: <span style={{color: chargeInfo.battery_range > 210 ? 'green' : chargeInfo.battery_range < 114 ? 'red' : 'yellow', fontWeight: 800}}>{chargeInfo.battery_range}mi</span></p>
+                    <p>Charge limit set to: {chargeInfo.charge_limit_soc}%</p>
+                    <p>Plugged in? {chargeInfo.charge_port_door_open ? 'Yes' : 'No'}</p>
                 </div>
                 
                 <div className="chargers--list">

@@ -22,15 +22,15 @@ function ContextProvider(props) {
 
     }
 
-    function getColor() {
-        if(batteryPercentage > 65) {
-            'green'
-        } else if (batteryPercentage < 35) {
-            'red'
-        } else {
-            'yellow'
-        }
-    }
+    // function getColor(batteryPercentage) {
+    //     if(batteryPercentage > 65) {
+    //         return 'green'
+    //     } else if (batteryPercentage < 35) {
+    //         return 'red'
+    //     } else {
+    //         return 'yellow'
+    //     }
+    // }
 
     return (
         <Context.Provider value={{
@@ -41,8 +41,7 @@ function ContextProvider(props) {
             forwarder,
             wakeUp,
             batteryPercentage, 
-            setBatteryPercentage,
-            getColor
+            setBatteryPercentage
         }}>
             {props.children}
         </Context.Provider>
