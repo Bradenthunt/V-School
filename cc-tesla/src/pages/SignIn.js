@@ -8,7 +8,8 @@ export default function SignIn() {
         accessToken,
         setAccessToken,
         setVehicle,
-        forwarder
+        forwarder,
+        wakeUp
     } = useContext(Context)
 
     function signIn(e) {
@@ -16,10 +17,13 @@ export default function SignIn() {
 
         window.localStorage.setItem('accessToken', accessToken)
 
+        console.log(accessToken)
+
         axios
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
                 setVehicle(res.data.response[0])
+                wakeUp(res.data.response[0])
                 alert("You're all signed in!")
             })
             .catch(err => {

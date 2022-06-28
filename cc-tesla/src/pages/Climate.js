@@ -42,8 +42,6 @@ export default function Climate() {
     }
 
     useEffect(() => {
-
-        wakeUp()
         
         axios
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/climate_state/`, {headers: {Authorization: `Bearer ${accessToken}`}})

@@ -13,7 +13,7 @@ function ContextProvider(props) {
 
     const forwarder = 'https://cors-anywhere.herokuapp.com/'
 
-    function wakeUp() {
+    function wakeUp(vehicle) {
 
         axios
             .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/wake_up`, {}, {headers: {Authorization: `Bearer ${accessToken}`}})

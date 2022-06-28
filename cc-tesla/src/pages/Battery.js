@@ -22,10 +22,10 @@ export default function Battery() {
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/charge_state`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
                 console.log(res.data.response.battery_level)
-                // setBatteryPercentage(res.data.response.battery_level)
+                setBatteryPercentage(res.data.response.battery_level)
 
                 console.log(res.data.response)
-                // setChargeInfo(res.data.response)
+                setChargeInfo(res.data.response)
             })
             .catch(err => console.log(err))
 
@@ -33,15 +33,15 @@ export default function Battery() {
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/nearby_charging_sites`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
                 console.log(res.data.response.destination_charging)
-                // setDestinationChargers(res.data.response.destination_charging)
+                setDestinationChargers(res.data.response.destination_charging)
 
                 console.log(res.data.response.superchargers)
-                // setSuperchargers(res.data.response.superchargers)
+                setSuperchargers(res.data.response.superchargers)
 
             })
             .catch(err => console.log(err))
 
-    })
+    }, [])
 
     return (
         <div className="main--content">
@@ -50,7 +50,7 @@ export default function Battery() {
                 <h2>Charging Info</h2>
                 <ul>
                     <li style={{listStyle: 'none'}}>Current battery level: {batteryPercentage}%</li>
-                    <li style={{listStyle: 'none'}}>Current range: {chargeInfo.battery_range}mi or km?</li>
+                    <li style={{listStyle: 'none'}}>Current range: {chargeInfo.battery_range}mi</li>
                 </ul>
                 <i className="fa-solid fa-bolt"></i>
                 <div className="chargers--list">
