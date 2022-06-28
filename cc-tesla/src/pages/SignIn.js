@@ -17,8 +17,6 @@ export default function SignIn() {
 
         window.localStorage.setItem('accessToken', accessToken)
 
-        console.log(accessToken)
-
         axios
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {

@@ -47,25 +47,25 @@ export default function Battery() {
         <div className="main--content">
             <h2 className="battery--title">Battery</h2>
             <div className="battery--charts">
-                <h2>Charging Info</h2>
+                <h2>Battery Info</h2>
                 <ul>
                     <li style={{listStyle: 'none'}}>Current battery level: {batteryPercentage}%</li>
                     <li style={{listStyle: 'none'}}>Current range: {chargeInfo.battery_range}mi</li>
                 </ul>
                 <i className="fa-solid fa-bolt"></i>
                 <div className="chargers--list">
-                    <h2>Nearby chargers</h2>
+                    <h2>Nearby Chargers</h2>
                     <h4>Superchargers</h4>
                         <ul>
-                            <li style={{listStyle: 'none'}}></li>
-                            <li style={{listStyle: 'none'}}></li>
-                            <li style={{listStyle: 'none'}}></li>
+                            <li style={{listStyle: 'none'}}>{superchargers[0].name} {Math.floor(superchargers[0].distance_miles)} away Available stalls: {superchargers[0].available_stalls}/{superchargers[0].total_stalls}</li>
+                            <li style={{listStyle: 'none'}}>{superchargers[1].name} {Math.floor(superchargers[1].distance_miles)} away Available stalls: {superchargers[1].available_stalls}/{superchargers[1].total_stalls}</li>
+                            <li style={{listStyle: 'none'}}>{superchargers[2].name} {Math.floor(superchargers[2].distance_miles)} away Available stalls: {superchargers[2].available_stalls}/{superchargers[2].total_stalls}</li>
                         </ul>
                     <h4>Destination Chargers</h4>
                         <ul>
-                            <li style={{listStyle: 'none'}}></li>
-                            <li style={{listStyle: 'none'}}></li>
-                            <li style={{listStyle: 'none'}}></li>
+                            <li style={{listStyle: 'none'}}>{destinationChargers[0].name} {Math.floor(destinationChargers[0].distance_miles)} away</li>
+                            <li style={{listStyle: 'none'}}>{destinationChargers[1].name} {Math.floor(destinationChargers[1].distance_miles)} away</li>
+                            <li style={{listStyle: 'none'}}>{destinationChargers[2].name} {Math.floor(destinationChargers[2].distance_miles)}away</li>
                         </ul>
                 </div>
                 

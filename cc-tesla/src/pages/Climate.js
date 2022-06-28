@@ -7,9 +7,7 @@ export default function Climate() {
     const {
         vehicle, 
         forwarder,
-        accessToken,
-        wakeUp,
-        setVehicle
+        accessToken
     } = useContext(Context)    
 
     const [temp, setTemp] = useState(70)
@@ -34,10 +32,13 @@ export default function Climate() {
 
         const convertedTemp = fahToCel(temp)
 
-        // axios
-        //     .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/set_temps`, {driver_temp: convertedTemp}, {headers: {Authorization: `Bearer ${accessToken}`}})
-        //     .then(res => console.log(res))
-        //     .catch(err => console.log(err))
+        axios
+            .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/set_temps`, {driver_temp: convertedTemp}, {headers: {Authorization: `Bearer ${accessToken}`}})
+            .then(res => {
+                console.log(res)
+
+            })
+            .catch(err => console.log(err))
 
     }
 

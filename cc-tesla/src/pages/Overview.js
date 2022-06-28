@@ -71,10 +71,10 @@ export default function Overview() {
         axios
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/vehicle_config`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
-                    console.log(res.data.response.car_type)
+                    // console.log(res.data.response.car_type)
                     setCarModel(res.data.response.car_type)
 
-                    console.log(res.data.response.exterior_color)
+                    // console.log(res.data.response.exterior_color)
                     setCarColor(res.data.response.exterior_color)
 
                 })
