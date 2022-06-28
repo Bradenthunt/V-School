@@ -22,6 +22,7 @@ export default function SignIn() {
             .then(res => {
                 setVehicle(res.data.response[0])
                 wakeUp(res.data.response[0])
+                window.localStorage.setItem('vehicle', JSON.stringify(res.data.response[0]))
                 alert("You're all signed in!")
             })
             .catch(err => {
@@ -30,9 +31,19 @@ export default function SignIn() {
             })
     }
 
+    function logOut() {
+        window.localStorage.removeItem('vehicle')
+
+        window.localStorage.removeItem('accessToken')
+
+        setAccessToken('')
+
+        setVehicle({})
+    }
+
     return (
         <div className="main--content">
-            <form name="login" className="login--form" onSubmit={signIn}>
+            <div className="login--form">
                 <h2>Sign in with your Tesla Access Token</h2>
                 <input
                     type="text"
@@ -41,9 +52,9 @@ export default function SignIn() {
                     placeholder="Access Token"
                     onChange={(e) => setAccessToken(e.target.value)}
                 />
-                <button>Sign In</button>
-            </form>
-            
+                <button onClick={signIn}>Sign In</button>
+                <button onClick={logOut}>Log Out</button>
+            </div>
         </div>
     )
 }

@@ -34,10 +34,12 @@ export default function Climate() {
 
         axios
             .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/set_temps`, {driver_temp: convertedTemp}, {headers: {Authorization: `Bearer ${accessToken}`}})
-            .then(res => {
-                console.log(res)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
 
-            })
+        axios
+            .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/auto_conditioning_start`, {}, {headers: {Authorization: `Bearer ${accessToken}`}})
+            .then(res => console.log(res))
             .catch(err => console.log(err))
 
     }
@@ -48,7 +50,7 @@ export default function Climate() {
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/climate_state/`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
                 // console.log(res.data.response.driver_temp_setting)
-                setTemp(celToFah(res.data.response.driver_temp_setting))
+                setTemp(celToFah(res.data.response.inside_temp))
 
             })
             .catch(err => console.log(err))

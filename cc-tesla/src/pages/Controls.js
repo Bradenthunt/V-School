@@ -13,7 +13,7 @@ export default function Controls() {
 
     function honkHorn() {
 
-        wakeUp()
+        wakeUp(vehicle)
 
         axios
             .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/honk_horn`, {}, {headers: {Authorization: `Bearer ${accessToken}`}})
@@ -24,7 +24,7 @@ export default function Controls() {
 
     function flashLights() {
 
-        wakeUp()
+        wakeUp(vehicle)
 
         axios
             .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/flash_lights`, {}, {headers: {Authorization: `Bearer ${accessToken}`}})
@@ -35,7 +35,7 @@ export default function Controls() {
 
     function lockCar() {
 
-        wakeUp()
+        wakeUp(vehicle)
         
         axios
             .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/door_lock`, {}, {headers: {Authorization: `Bearer ${accessToken}`}})
@@ -46,7 +46,7 @@ export default function Controls() {
 
     function unlockCar() {
 
-        wakeUp()
+        wakeUp(vehicle)
         
         axios
             .post(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/command/door_unlock`, {}, {headers: {Authorization: `Bearer ${accessToken}`}})

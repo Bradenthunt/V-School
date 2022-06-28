@@ -7,9 +7,9 @@ function ContextProvider(props) {
 
     const [accessToken, setAccessToken] = useState(window.localStorage.getItem('accessToken'))
 
-    const [vehicle, setVehicle] = useState()
+    const [vehicle, setVehicle] = useState(JSON.parse(window.localStorage.getItem('vehicle')))
 
-    const [batteryPercentage, setBatteryPercentage] = useState(66)
+    const [batteryPercentage, setBatteryPercentage] = useState()
 
     const forwarder = 'https://cors-anywhere.herokuapp.com/'
 
@@ -22,6 +22,16 @@ function ContextProvider(props) {
 
     }
 
+    function getColor() {
+        if(batteryPercentage > 65) {
+            'green'
+        } else if (batteryPercentage < 35) {
+            'red'
+        } else {
+            'yellow'
+        }
+    }
+
     return (
         <Context.Provider value={{
             accessToken,
@@ -31,7 +41,8 @@ function ContextProvider(props) {
             forwarder,
             wakeUp,
             batteryPercentage, 
-            setBatteryPercentage
+            setBatteryPercentage,
+            getColor
         }}>
             {props.children}
         </Context.Provider>

@@ -28,19 +28,21 @@ export default function Overview() {
         forwarder,
         vehicle,
         accessToken,
-        batteryPercentage
+        batteryPercentage,
+        setBatteryPercentage,
+        getColor
     } = useContext(Context)
 
-    const [odometer, setOdometer] = useState()
-    const [carModel, setCarModel] = useState('')
-    const [carColor, setCarColor] = useState('')
+    const [odometer, setOdometer] = useState(0)
+    const [carModel, setCarModel] = useState('default')
+    const [carColor, setCarColor] = useState('default')
 
     const colorCars = {
         modely: {
             Red: modelYred,
             DeepBlue: modelYblue,
             PearlWhite: modelYwhite,
-            SolidBlack: modelYwhite,
+            SolidBlack: modelYblack,
             MidnightSilver: modelYgrey
         },
         model3: {
@@ -63,6 +65,9 @@ export default function Overview() {
             PearlWhite: modelXwhite,
             SolidBlack: modelXblack,
             MidnightSilver: modelXgrey
+        },
+        default: {
+            default: model3white
         }
     }
 
@@ -71,10 +76,11 @@ export default function Overview() {
         axios
             .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/vehicle_config`, {headers: {Authorization: `Bearer ${accessToken}`}})
             .then(res => {
-                    // console.log(res.data.response.car_type)
+                    console.log(res.data.response)
+                    console.log(res.data.response.car_type)
                     setCarModel(res.data.response.car_type)
 
-                    // console.log(res.data.response.exterior_color)
+                    console.log(res.data.response.exterior_color)
                     setCarColor(res.data.response.exterior_color)
 
                 })
@@ -88,6 +94,14 @@ export default function Overview() {
                 })
             .catch(err => console.log(err))
 
+        axios
+            .get(`${forwarder}https://owner-api.teslamotors.com/api/1/vehicles/${vehicle.id}/data_request/charge_state`, {headers: {Authorization: `Bearer ${accessToken}`}})
+            .then(res => {
+                // console.log(res.data.response.battery_level)
+                setBatteryPercentage(res.data.response.battery_level)
+            })
+            .catch(err => console.log(err))
+
     }, [])
 
     return (
@@ -97,9 +111,9 @@ export default function Overview() {
                     <h1>{vehicle.display_name}</h1>
                     <h2>{vehicle.vin}</h2>
                     <h2>{Math.floor(odometer)} miles</h2>
-                    <h2 style={{color: batteryPercentage > 65 ? 'green' : batteryPercentage < 35 ? 'red' : 'yellow'}}>{batteryPercentage}%</h2>
+                    <h2 style={{color: getColor}}>{batteryPercentage}%</h2>
                 </div>
-                <img className="overview--vehicle--image" src={colorCars[carModel][carColor]} />
+                <img className="overview--vehicle--image" src={colorCars?.[carModel]?.[carColor]} />
             </div>
         </div>
     )
