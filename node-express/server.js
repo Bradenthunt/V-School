@@ -1,6 +1,5 @@
 const express = require("express")
 const app = express()
-const {v4: uuid} = require('uuid')
 
 app.use(express.json())
 
