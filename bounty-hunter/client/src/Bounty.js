@@ -15,12 +15,12 @@ export default function Bounty(props) {
     const [toggleEdit, setToggleEdit] = useState(false)
 
     return (
-        <div>
+        <div className="wanted--poster">
             {!toggleEdit ?
                 <>
-                <h2>Name: {firstName} {lastName}</h2>
-                    <h3>{bountyAmount}</h3>
-                    <h3>{type}</h3>
+                    <h2>{firstName} {lastName}</h2>
+                    <h3>{bountyAmount} credits</h3>
+                    <h3>Affiliation: {type}</h3>
                     <h3>{living ? 'Alive' : 'Dead'}</h3>
                     <button onClick={() => props.removeBounty(_id)}>Remove</button>
                     <button onClick={() => setToggleEdit(prevToggle => !prevToggle)}>Edit</button>

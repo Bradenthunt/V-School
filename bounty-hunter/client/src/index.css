@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  background-image: url("https://i.pinimg.com/736x/fd/d6/eb/fdd6ebb0ea0f2dafc0aaa5bc6be97d4a.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: grey;
+  height: 100vh;
+}
+
+.title {
+  width: 20%;
+  margin: 50px 40%;
+}
+
+.form {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.wanted--list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.wanted--poster {
+  background-color: tan;
+  width: 200px;
+  padding: 20px;
+}

@@ -39,19 +39,22 @@ export default function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className="app">
+      <img src="https://fontmeme.com/permalink/220708/4625df16fc3dc2bea2302c221e94248f.png" alt="the-mandalorian-font" border="0" className='title'/>
       <AddBountyForm 
         submit={addBounty}
         btnText="Add Bounty"
       />
-      {
-        bounties.map((bounty, index) => 
-          <Bounty 
-            key={index} 
-            {...bounty}
-            removeBounty={removeBounty}
-            updateBounty={updateBounty}/>)
-      }
+      <div className='wanted--list'>
+        {
+          bounties.map((bounty, index) => 
+            <Bounty 
+              key={index}
+              {...bounty}
+              removeBounty={removeBounty}
+              updateBounty={updateBounty}/>)
+        }
+      </div>
     </div>
   )
 }

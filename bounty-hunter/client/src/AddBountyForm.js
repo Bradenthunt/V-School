@@ -2,12 +2,10 @@ import React, { useState } from "react";
 
 export default function AddBountyForm(props) {
 
-    const [] = useState()
-
     const initialInputs = {
         firstName: props.firstName || '',
         lastName: props.lastName || '',
-        bountyAmount: props.bountyAmount || '',
+        bountyAmount: props.bountyAmount || 0,
         living: props.living || true,
         type: props.type || ''
     }
@@ -20,10 +18,6 @@ export default function AddBountyForm(props) {
         setInputs(prevInputs => ({...prevInputs, [name]: value}))
     }
 
-    function handleSelect(e) {
-        setInputs(prevInputs => ({...prevInputs, living: e.target.value}))
-    }
-
     function handleSubmit(e) {
         e.preventDefault()
         props.submit(inputs, props._id)
@@ -31,7 +25,7 @@ export default function AddBountyForm(props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 name="firstName" 
@@ -56,20 +50,13 @@ export default function AddBountyForm(props) {
                 placeholder="Bounty Amount" 
                 required
             />
-            {/* <input 
-                type="text" 
-                name="living" 
-                value={inputs.living} 
-                onChange={handleChange} 
-                placeholder="Dead or Alive?" 
-                required
-            /> */}
             <label>
-                Is the bounty alive?
-                <select onChange={handleSelect}>
-                    <option value={true}>Alive</option>
-                    <option value={false}>Dead</option>
-                </select>
+                Alive?
+                <input 
+                    type="checkbox"
+                    name="living"
+                    onChange={handleChange}
+                />
             </label>
             <input 
                 type="text" 
