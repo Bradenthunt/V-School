@@ -6,7 +6,7 @@ export default function AddBountyForm(props) {
         firstName: props.firstName || '',
         lastName: props.lastName || '',
         bountyAmount: props.bountyAmount || '',
-        living: props.living || true,
+        living: props.living || false,
         type: props.type || ''
     }
 
@@ -15,7 +15,19 @@ export default function AddBountyForm(props) {
     function handleChange(e) {
         const {name, value} = e.target
 
-        setInputs(prevInputs => ({...prevInputs, [name]: value}))
+        setInputs(prevInputs => {
+            
+            return {...prevInputs, [name]: value}
+            
+        })
+    }
+
+    function handleCheckbox(e) {
+        if(e.target.checked) {
+            setInputs(prevInputs => ({...prevInputs, living: true}))
+        } else {
+            setInputs(prevInputs => ({...prevInputs, living: false}))
+        }
     }
 
     function handleSubmit(e) {
@@ -55,7 +67,8 @@ export default function AddBountyForm(props) {
                 <input 
                     type="checkbox"
                     name="living"
-                    onChange={handleChange}
+                    checked={inputs.living}
+                    onChange={handleCheckbox}
                 />
             </label>
             <input 

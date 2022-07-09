@@ -44,8 +44,6 @@ export default function App() {
         .then(res => setBounties(res.data))
         .catch(err => console.log(err))
     }
-
-    
   }
 
   useEffect(() => {

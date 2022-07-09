@@ -14,6 +14,11 @@ export default function Bounty(props) {
 
     const [toggleEdit, setToggleEdit] = useState(false)
 
+    function saveAndExit(updates, bountyId) {
+        props.updateBounty(updates, bountyId)
+        setToggleEdit(false)
+    }
+
     return (
         <div className="wanted--poster">
             {!toggleEdit ?
@@ -35,7 +40,7 @@ export default function Bounty(props) {
                         living={living}
                         _id={_id}
                         btnText="Save"
-                        submit={props.updateBounty}
+                        submit={saveAndExit}
                     />
                     <button onClick={() => setToggleEdit(prevToggle => !prevToggle)}>Exit</button>
                 </>
