@@ -6,6 +6,8 @@ import AddBountyForm from './AddBountyForm'
 export default function App() {
   const [bounties, setBounties] = useState([])
 
+  // const [errorMessage, setErrorMessage] = useState('')
+
   function getBounties() {
     axios.get("/bounties")
       .then(res => setBounties(res.data))
@@ -34,6 +36,18 @@ export default function App() {
       .catch(err => console.log(err))
   }
 
+  function handleFilter(e) {
+    if(e.target.value === 'reset') {
+      getBounties()
+    } else {
+      axios.get(`/bounties/search/type?type=${e.target.value}`)
+        .then(res => setBounties(res.data))
+        .catch(err => console.log(err))
+    }
+
+    
+  }
+
   useEffect(() => {
     getBounties()
   }, [])
@@ -45,6 +59,14 @@ export default function App() {
         submit={addBounty}
         btnText="Add Bounty"
       />
+
+      <h4>Filter by Type</h4>
+      <select onChange={handleFilter} className='filter'>
+        <option value='reset'>All Types</option>
+        <option value='Jedi'>Jedi</option>
+        <option value='Sith'>Sith</option>
+      </select>
+
       <div className='wanted--list'>
         {
           bounties.map((bounty, index) => 

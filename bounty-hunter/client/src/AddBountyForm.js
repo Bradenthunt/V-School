@@ -5,7 +5,7 @@ export default function AddBountyForm(props) {
     const initialInputs = {
         firstName: props.firstName || '',
         lastName: props.lastName || '',
-        bountyAmount: props.bountyAmount || 0,
+        bountyAmount: props.bountyAmount || '',
         living: props.living || true,
         type: props.type || ''
     }
