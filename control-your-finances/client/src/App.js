@@ -23,11 +23,11 @@ export default function App() {
         <Link to="/" style={linkStyling}>
           Overview
         </Link>
-        <Link to="/income" style={linkStyling}>
-          Income
-        </Link>
         <Link to="/expenses" style={linkStyling}>
           Expenses
+        </Link>
+        <Link to="/income" style={linkStyling}>
+          Income
         </Link>
         <Link to="/advice" style={linkStyling}>
           Advice

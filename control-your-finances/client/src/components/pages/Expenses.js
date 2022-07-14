@@ -1,39 +1,50 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../Context'
+import ExpenseItem from '../ExpenseItem'
 
 export default function Expenses() {
 
     const {
-        initExpense,
-        expense, 
-        setExpense,
-        submitExpense
+        name,
+        setName,
+        category, 
+        setCategory,
+        amount,
+        setAmount,
+        submitExpense,
+        expensesArray,
+        getExpenses,
+        expensesTotal
     } = useContext(Context)
-
-    const [name, setName] = useState('')
-    const [category, setCategory] = useState('')
-    const [amount, setAmount] = useState(0)
-
-    // function handleChange(e, expense) {
-    //     const {name, value} = e.target
-
-    //     setExpense(prevExpense => ({...prevExpense, expense, [name]: value}))
-    // }
 
     function handleSubmit(e) {
         e.preventDefault()
-        submitExpense(expense)
-        setExpense(initExpense)
+
+        submitExpense({
+            name: name, 
+            category: category, 
+            amount: amount
+        })
+
+        clearExpenseForm()
     }
 
-    function handleSelect(e) {
-        setSelectCategory(e.target.value)
+    function clearExpenseForm() {
+        setName('')
+        setCategory('')
+        setAmount('')
     }
+
+    useEffect(() => {
+        getExpenses()
+    }, [])
   
+    const expensesList = expensesArray.map((expense, index) => <ExpenseItem key={index} {...expense}/>)
+
   return (
     <div className="main--content">
       <h2>Expenses</h2>
-      <h3>*Expenses total here*</h3>
+      <h3>${expensesTotal}</h3>
       <form onSubmit={handleSubmit}>
         <input 
             type='text'
@@ -67,7 +78,9 @@ export default function Expenses() {
         />
         <button>Submit Expense</button>
       </form>
-      <p>*Expenses list here*</p>
+      <div>
+        {expensesList}
+      </div>
     </div>
   )
 }
