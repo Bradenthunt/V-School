@@ -65,9 +65,11 @@ export default function Expenses() {
 
   return (
     <div className="main--content">
-      <h2>Expenses</h2>
-      <h3>${expensesTotal}</h3>
-      <form onSubmit={handleSubmit}>
+        <div className='page--header'>
+            <h2>Expenses</h2>
+            <h3>${expensesTotal}</h3> 
+        </div>
+        <form onSubmit={handleSubmit}>
         <input 
             type='text'
             name='name'

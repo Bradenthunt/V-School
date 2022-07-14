@@ -56,8 +56,10 @@ export default function Income() {
   
   return (
     <div className="main--content">
-      <h2>Income</h2>
-      <h3>${incomeTotal}</h3>
+        <div className='page--header'>
+            <h2>Income</h2>
+            <h3>${incomeTotal}</h3>
+        </div>
       <form onSubmit={handleSubmit}>
         <input 
             type='text'

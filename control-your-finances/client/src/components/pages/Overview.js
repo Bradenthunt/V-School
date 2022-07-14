@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Context } from '../Context'
 
 export default function Overview() {
@@ -14,14 +15,30 @@ export default function Overview() {
         getExpenses()
         getIncome()
     }, [])
+
+    const linkStyling = {
+        textDecoration: 'none', 
+        color: 'lime',
+        fontWeight: 'bold'
+      }
   
   return (
     <div className="main--content">
-      <h2>Expenses</h2>
-      <h4>${expensesTotal}</h4>
-      <p>*Pie chart or graph here*</p>
-      <h2>Income</h2>
-      <h4>${incomeTotal}</h4>
+        <h1 className='overview--title'>Overview</h1>
+        <div className='overview'>
+            <div>
+                <Link to="/expenses" style={linkStyling}>
+                    <h1>Expenses</h1>
+                    <h3>${expensesTotal}</h3>
+                </Link>
+            </div>
+            <div>
+                <Link to='/income' style={linkStyling}>
+                    <h1>Income</h1>
+                    <h3>${incomeTotal}</h3>
+                </Link>
+            </div>
+        </div>
     </div>
   )
 }

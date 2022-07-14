@@ -15,6 +15,7 @@ function ContextProvider(props) {
     const [expensesTotal, setExpensesTotal] = useState('')
     const [incomeTotal, setIncomeTotal] = useState('')
 
+    // const [hasDebt, setHasDebt] = useState(false)
 
     const getExpenses = () => {
         axios.get("/expenses")
@@ -24,7 +25,9 @@ function ContextProvider(props) {
                 acc = acc + curr.amount
                 return acc
             }, 0)
+            // const debt = res.data.filter(data => ({data.category === 'debt' ? true : false}))
             setExpensesTotal(total)
+            // setHasDebt(debt)
             })
           .catch(err => console.log(err))
     }
@@ -64,13 +67,31 @@ function ContextProvider(props) {
 
     const deleteExpense = (expenseId) => {
         axios.delete(`/expenses/${expenseId}`)
-            .then(res => {setExpensesArray(prevExpenses => prevExpenses.filter(expense => expense._id !== expenseId))})
+            .then(res => {setExpensesArray(prevExpenses => prevExpenses.filter(expense => expense._id !== expenseId))}
+            )
             .catch(err => console.log(err))
     }
+
 
     const deleteIncome = (incomeId) => {
         axios.delete(`/income/${incomeId}`)
             .then(res => {setIncomeArray(prevIncome => prevIncome.filter(income => income._id !== incomeId))})
+            .catch(err => console.log(err))
+    }
+
+    const editExpense = (edits, expenseId) => {
+        axios.put(`/expenses/${expenseId}`, edits)
+            .then(res => {
+                setExpensesArray(prevExpenses => prevExpenses.map(expense => expense._id !== expenseId ? expense : res.data))
+            })
+            .catch(err => console.log(err))
+    }
+
+    const editIncome = (edits, incomeId) => {
+        axios.put(`/income/${incomeId}`, edits)
+            .then(res => {
+                setIncomeArray(prevIncome => prevIncome.map(income => income._id !== incomeId ? income : res.data))
+            })
             .catch(err => console.log(err))
     }
 
@@ -94,7 +115,10 @@ function ContextProvider(props) {
             deleteExpense,
             deleteIncome,
             setExpensesArray,
-            setIncomeArray
+            setIncomeArray,
+            // hasDebt,
+            editExpense,
+            editIncome
         }}>
             {props.children}
         </Context.Provider>
