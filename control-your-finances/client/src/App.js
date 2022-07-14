@@ -11,7 +11,7 @@ export default function App() {
 
   const linkStyling = {
     textDecoration: 'none', 
-    color: 'blue',
+    color: 'white',
     fontWeight: 'bold'
   }
 

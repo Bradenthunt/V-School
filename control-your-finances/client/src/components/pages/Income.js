@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Context } from '../Context'
 import IncomeItem from '../IncomeItem'
+import axios from 'axios'
 
 
 export default function Income() {
@@ -15,10 +16,11 @@ export default function Income() {
         submitIncome,
         incomeArray,
         getIncome,
-        incomeTotal
+        incomeTotal,
+        setIncomeArray
     } = useContext(Context)
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         submitIncome({
@@ -30,10 +32,20 @@ export default function Income() {
         clearIncomeForm()
     }
 
-    function clearIncomeForm() {
+    const clearIncomeForm = () => {
         setName('')
         setCategory('')
         setAmount('')
+    }
+
+    const handleFilter = (e) => {
+        if (e.target.value === 'reset') {
+            getIncome()
+        } else {
+            axios.get(`/income/search/category?category=${e.target.value}`)
+                .then(res => setIncomeArray(res.data))
+                .catch(err => console.log(err))
+        }
     }
 
     useEffect(() => {
@@ -72,6 +84,14 @@ export default function Income() {
         <button>Submit Income</button>
       </form>
       <div>
+        <select onChange={handleFilter} className='filter'>
+            <option value='reset'>- Filter by Category -</option>
+            <option value='job'>Job</option>
+            <option value='side hustle'>Side Hustle</option>
+            <option value='other'>Other</option>
+        </select>
+      </div>
+      <div className='list'>
         {incomeList}
       </div>
     </div>

@@ -16,26 +16,34 @@ function ContextProvider(props) {
     const [incomeTotal, setIncomeTotal] = useState('')
 
 
-    function getExpenses() {
+    const getExpenses = () => {
         axios.get("/expenses")
           .then(res => {
             setExpensesArray(res.data)
-            setExpensesTotal(Number(res.data.amount))
-        })
+            const total = res.data.reduce((acc, curr) => {
+                acc = acc + curr.amount
+                return acc
+            }, 0)
+            setExpensesTotal(total)
+            })
           .catch(err => console.log(err))
     }
 
-    function getIncome() {
+    const getIncome = ()  => {
         axios.get("/income")
           .then(res => {
             setIncomeArray(res.data)
-            setIncomeTotal(Number(res.data.amount))
+            const total = res.data.reduce((acc, curr) => {
+                acc = acc + curr.amount
+                return acc
+            }, 0)
+            setIncomeTotal(total)
 
         })
           .catch(err => console.log(err))
     }
 
-    function submitExpense(newExpense) {
+    const submitExpense = (newExpense) => {
         axios.post('/expenses', newExpense)
             .then(res => {
                 setExpensesArray(prevExpenses => [...prevExpenses, res.data])
@@ -44,7 +52,7 @@ function ContextProvider(props) {
             .catch(err => console.log(err))
     }
 
-    function submitIncome(newIncome) {
+    const submitIncome = (newIncome) => {
         axios.post('/income', newIncome)
             .then(res => {
                 setIncomeArray(prevIncomes => [...prevIncomes, res.data])
@@ -54,13 +62,13 @@ function ContextProvider(props) {
             .catch(err => console.log(err))
     }
 
-    function deleteExpense(expenseId) {
+    const deleteExpense = (expenseId) => {
         axios.delete(`/expenses/${expenseId}`)
             .then(res => {setExpensesArray(prevExpenses => prevExpenses.filter(expense => expense._id !== expenseId))})
             .catch(err => console.log(err))
     }
 
-    function deleteIncome(incomeId) {
+    const deleteIncome = (incomeId) => {
         axios.delete(`/income/${incomeId}`)
             .then(res => {setIncomeArray(prevIncome => prevIncome.filter(income => income._id !== incomeId))})
             .catch(err => console.log(err))
@@ -84,7 +92,9 @@ function ContextProvider(props) {
             expensesTotal,
             incomeTotal,
             deleteExpense,
-            deleteIncome
+            deleteIncome,
+            setExpensesArray,
+            setIncomeArray
         }}>
             {props.children}
         </Context.Provider>

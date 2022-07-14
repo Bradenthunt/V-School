@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../Context'
 import ExpenseItem from '../ExpenseItem'
@@ -14,10 +15,11 @@ export default function Expenses() {
         submitExpense,
         expensesArray,
         getExpenses,
-        expensesTotal
+        expensesTotal,
+        setExpensesArray
     } = useContext(Context)
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         submitExpense({
@@ -29,11 +31,31 @@ export default function Expenses() {
         clearExpenseForm()
     }
 
-    function clearExpenseForm() {
+    const clearExpenseForm = () => {
         setName('')
         setCategory('')
         setAmount('')
     }
+
+    const handleFilter = (e) => {
+        if (e.target.value === 'reset') {
+            getExpenses()
+        } else {
+            axios.get(`/expenses/search/category?category=${e.target.value}`)
+                .then(res => setExpensesArray(res.data))
+                .catch(err => console.log(err))
+        }
+    }
+
+    // const handleSort = (e) => {
+    //     if (e.target.value === 'reset') {
+    //         getExpenses()
+    //     } else {
+    //         axios.get(`/expenses/search/category?category=${e.target.value}`)
+    //             .then(res => setExpensesArray(res.data))
+    //             .catch(err => console.log(err))
+    //     }
+    // }
 
     useEffect(() => {
         getExpenses()
@@ -79,6 +101,27 @@ export default function Expenses() {
         <button>Submit Expense</button>
       </form>
       <div>
+        <select onChange={handleFilter} className='filter'>
+            <option value='reset'>- Filter by Category -</option>
+            <option value='food'>Food</option>
+            <option value='utilities'>Utilities</option>
+            <option value='housing'>Housing</option>
+            <option value='transportation'>Transportation</option>
+            <option value='insurance'>Insurance</option>
+            <option value='debt'>Debt</option>
+            <option value='fun'>Fun</option>
+            <option value='savings'>Savings</option>
+            <option value='donations'>Donations</option>
+            <option value='emergency fund'>Emergency Fund</option>
+            <option value='miscellaneous'>Miscellaneous</option>
+        </select>
+        {/* <select onChange={handleSort} className='sort'>
+            <option value='reset'>- Sort -</option>
+            <option value='highest'></option>
+            <option value='lowest'></option>
+        </select> */}
+      </div>
+      <div className='list'>
         {expensesList}
       </div>
     </div>
