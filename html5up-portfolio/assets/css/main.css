@@ -1665,4 +1665,6 @@ input, select, textarea {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
+	font-size: 0.625rem;
+	margin: 0 0 0.625rem 0;
 }
