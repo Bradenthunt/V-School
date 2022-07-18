@@ -1659,3 +1659,10 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+.button--container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
