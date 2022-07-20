@@ -24,7 +24,7 @@ export default function Overview() {
   
   return (
     <div className="main--content">
-        <h1 className='overview--title'>Overview</h1>
+        <h1 className='overview--title'>My Overview</h1>
         <div className='overview'>
             <div>
                 <Link to="/expenses" style={linkStyling}>

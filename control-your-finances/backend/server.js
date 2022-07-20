@@ -21,6 +21,6 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(9000, () => {
+app.listen(process.env.PORT || 9000, () => {
     console.log('Running on 9000')
 })
