@@ -1680,3 +1680,7 @@ input, select, textarea {
 	.icon--sizing {
 		font-size: 2rem;
 	}
+
+	.fas, .fa-code {
+		font-size: 2rem;
+	}
