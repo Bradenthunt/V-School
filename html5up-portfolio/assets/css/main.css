@@ -1660,11 +1660,19 @@ input, select, textarea {
 			opacity: 0;
 		}
 
-.button--container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-	font-size: 0.625rem;
-	margin: 0 0 1.25rem 0;
-}
+/* My additions */
+
+	.button--container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		font-size: 0.625rem;
+		margin: 0 0 1.25rem 0;
+	}
+
+	.side--by--side {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
