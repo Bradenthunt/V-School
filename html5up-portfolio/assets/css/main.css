@@ -1676,3 +1676,7 @@ input, select, textarea {
 		justify-content: space-around;
 		align-items: center;
 	}
+
+	.icon--sizing {
+		font-size: 2rem;
+	}
