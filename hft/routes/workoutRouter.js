@@ -1,68 +1,68 @@
 const express = require("express")
-const issuesRouter = express.Router()
-const Issue = require('../models/issue.js')
+const workoutRouter = express.Router()
+const Workout = require('../models/Workout')
 
 
-// Get All issues
-issuesRouter.get("/", (req, res, next) => {
-  Issue.find((err, issues) => {
+// Get All workouts
+workoutRouter.get("/", (req, res, next) => {
+  Workout.find((err, workouts) => {
     if(err){
       res.status(500)
       return next(err)
     }
-    return res.status(200).send(issues)
+    return res.status(200).send(workouts)
   })
 })
 
 
-// Get issues by user id
-issuesRouter.get('/user', (req, res, next) => {
-  Issue.find({user: req.auth._id}, (err, issues) => {
+// Get Workouts by user id
+workoutRouter.get('/user', (req, res, next) => {
+  Workout.find({user: req.auth._id}, (err, workouts) => {
     if(err) {
       res.status(500)
       return next(err)
     }
-    return res.status(200).send(issues)
+    return res.status(200).send(workouts)
   })
 })
 
 
-// Add new issue
-issuesRouter.post("/", (req, res, next) => {
+// Add new Workout
+workoutRouter.post("/", (req, res, next) => {
   req.body.user = req.auth._id
-  const newIssue = new Issue(req.body)
-  newIssue.save((err, savedIssue) => {
+  const newWorkout = new Workout(req.body)
+  newWorkout.save((err, savedWorkout) => {
     if(err){
       res.status(500)
       return next(err)
     }
-    return res.status(201).send(savedIssue)
+    return res.status(201).send(savedWorkout)
   })
 })
 
 
-// Delete issue
-issuesRouter.delete("/:issueId", (req, res, next) => {
-  Issue.findOneAndDelete(
+// Delete Workout
+workoutRouter.delete("/:workoutId", (req, res, next) => {
+  Workout.findOneAndDelete(
     { _id: req.params.todoId, user: req.auth._id },
-    (err, deletedIssue) => {
+    (err, deletedWorkout) => {
       if(err){
         res.status(500)
         return next(err)
       }
-      return res.status(200).send(`Successfully deleted issue: ${deletedIssue.title}`)
+      return res.status(200).send(`Successfully deleted workout: ${deletedWorkout.title}`)
     }
   )
 })
 
 
-// Update issue
-issuesRouter.put("/:issueId", (req, res, next) => {
-  Issue.findOneAndUpdate(
-    { _id: req.params.issueId , user: req.auth._id},
+// Update Workout
+workoutRouter.put("/:workoutId", (req, res, next) => {
+  Workout.findOneAndUpdate(
+    { _id: req.params.workoutId , user: req.auth._id},
     req.body,
     { new: true },
-    (err, updatedIssue) => {
+    (err, updatedWorkout) => {
       if(err){
         res.status(500)
         return next(err)
@@ -87,7 +87,7 @@ issuesRouter.put("/:issueId", (req, res, next) => {
         //add to downvotes
         downVotes.push(req.body.userId)
     }
-      return res.status(201).send(updatedIssue)
+      return res.status(201).send(updatedWorkout)
     }
   )
 })
@@ -117,4 +117,4 @@ issuesRouter.put("/:issueId", (req, res, next) => {
 //         }
 
 
-module.exports = issuesRouter
+module.exports = workoutRouter

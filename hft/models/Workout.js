@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const issueSchema = new Schema({
-    title: {
+// Finalize
+const workoutSchema = new Schema({
+    name: {
         type: String,
         required: true
     },
@@ -10,13 +11,7 @@ const issueSchema = new Schema({
         type: String,
         required: true
     },
-    comments: {
-        type: Array
-    },
-    upVotes: {
-        type: Array
-    },
-    downVotes: {
+    exercises: {
         type: Array
     },
     user: {
@@ -26,4 +21,4 @@ const issueSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('Issue', issueSchema)
+module.exports = mongoose.model('Workout', workoutSchema)
