@@ -4,12 +4,12 @@ import { IssueContext } from "../context/IssueProvider";
 
 export default function Public() {
 
-    const {allIssues, updateIssue} = useContext(IssueContext)
+    const {allIssues} = useContext(IssueContext)
 
     return (
         <div className="public">
             <h1>All Issues</h1>
-            <IssueList issues={allIssues} updateIssue={updateIssue}/>
+            <IssueList issues={allIssues}/>
         </div>
     )
 }

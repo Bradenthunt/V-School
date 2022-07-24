@@ -10,7 +10,7 @@ issuesRouter.get("/", (req, res, next) => {
       res.status(500)
       return next(err)
     }
-    return res.status(200).send(issues)
+    return res.status(200).send(issues.sort())
   })
 })
 
@@ -57,36 +57,46 @@ issuesRouter.delete("/:issueId", (req, res, next) => {
 
 
 // Update issue
-issuesRouter.put("/:issueId", (req, res, next) => {
+issuesRouter.put("/:issueId", async(req, res, next) => {
+  const newBody = {
+    ...req.body
+  }
+  const currentIssue = await Issue.findOne({_id: req.params.issueId})
+
+  const currentIssueClone = {
+    comments: [...currentIssue.comments],
+    upVotes: [...currentIssue.upVotes],
+    downVotes: [...currentIssue.downVotes]
+  }
+
+  if(newBody.upVoting) {
+    if(currentIssueClone.upVotes.includes(newBody.userId)) {
+      return
+    }
+
+    currentIssueClone.upVotes.push(newBody.userId)
+    currentIssueClone.downVotes = currentIssueClone.downVotes.filter(dv => dv !== newBody.userId)
+  }
+  if(newBody.downVoting) {
+    if(currentIssueClone.downVotes.includes(newBody.userId)) {
+      return
+    }
+
+    currentIssueClone.downVotes.push(newBody.userId)
+    currentIssueClone.upVotes = currentIssueClone.upVotes.filter(uv => uv !== newBody.userId)
+  }
+ 
+  currentIssueClone.comments = req.body.comments
+
   Issue.findOneAndUpdate(
     { _id: req.params.issueId , user: req.auth._id},
-    req.body,
-    { new: true },
+    currentIssueClone,
+    { returnOriginal: false },
     (err, updatedIssue) => {
       if(err){
         res.status(500)
         return next(err)
       }
-      if(req.body.upVote) {
-        // check if its already upvoted by their id if so we dont care and end early CAN DO ON FRONTENND BEFORE REQ
-        if(upVotes.includes(req.body.userId)){
-            return
-        }
-        // remove it from downvotes
-        downVotes.filter(dv => dv !== userId)
-        // add to upvotes
-        upVotes.push(req.body.userId)
-    }
-    if(req.body.downvotes) {
-        // check if already downvoted by their id if so we dont care and end early CAN DO ON FRONTEND BEFORE REQ
-        if(downVotes.includes(req.body.userId)){
-            return
-        }
-        // remove it from upvotes
-        upVotes.filter(uv => uv !== userId)
-        //add to downvotes
-        downVotes.push(req.body.userId)
-    }
       return res.status(201).send(updatedIssue)
     }
   )

@@ -44,12 +44,11 @@ export default function IssueProvider(props) {
     }
 
     const updateIssue = (issueId, updates) => {
-        userAxios.put(`/api/issues/${issueId}`, {
-            upVote: updates,
-            userId: 12345,
-            comments: [{updates}]
-        })
-            .then(res => console.log(res))
+        userAxios.put(`/api/issues/${issueId}`, updates)
+            .then(res => {
+                getAllIssues()
+                getUserIssues()
+            })
             .catch(err => console.log(err))
     }
 
