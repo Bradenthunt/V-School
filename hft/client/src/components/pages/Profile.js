@@ -1,4 +1,5 @@
 import React from "react";
+import WorkoutList from '../WorkoutList.js'
 
 const Profile = () => {
 

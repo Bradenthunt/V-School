@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import Footer from "./components/Footer";
-import Profile from "./components/Profile";
-import Workout from "./components/Workout";
-import Community from "./components/Community";
+import Profile from "./components/pages/Profile";
+import Workout from "./components/pages/Workout";
+import Community from "./components/pages/Community";
 import { UserContext } from "./context/UserProvider";
+import Navbar from './components/Navbar'
+import { Routes, Route, Navigate } from "react-router-dom";
+import ProtectedRoute from './components/ProtectedRoute'
+import Auth from './components/Auth'
 
 
 const App = () => {

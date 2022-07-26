@@ -9,7 +9,7 @@ const Workout = () => {
             <h1>{name}</h1>
             <h3>{description}</h3>
             <p>{exercises}</p>
-            <form onSubmit={}>
+            <form >
                 <input
                     type='text' 
                     name='text'

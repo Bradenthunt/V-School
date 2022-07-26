@@ -43,7 +43,7 @@ export default function Auth() {
 
     return (
         <div>
-            <h1>Rock the Vote</h1>
+            <h1>Hunt Fitness Tracker</h1>
             { !toggle ?
                 <>
                     <AuthForm 
