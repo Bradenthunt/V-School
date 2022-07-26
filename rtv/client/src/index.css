@@ -11,3 +11,129 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: gray;
+  height: 50px;
+}
+
+.signup--title {
+  text-align: center;
+}
+
+.signup--page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid 1px black;
+  border-radius: 10px;
+  width: auto;
+  min-width: 100px;
+  margin: 10vh 35vw;
+  padding: 30px;
+}
+
+.signup--toggle {
+  text-decoration: underline;
+}
+
+.auth--form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile {
+
+}
+
+.profile--name {
+  margin: 50px;
+}
+
+.profile--add--issue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile--issue--form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile--issue--title {
+  text-decoration: underline;
+}
+
+.profile--your--issues {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.issue--and--comments {
+  border: solid 1px black;
+  border-radius: 10px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.issue {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete--button {
+  background-color: red;
+  color: white;
+  border: transparent;
+  border-radius: 5px;
+}
+
+.comments--toggle {
+  text-decoration: underline;
+  text-align: center;
+  color: blue;
+}
+
+.comments--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comments {
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: lightgray;
+  width: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.public {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.public--title {
+  text-decoration: underline;
+}

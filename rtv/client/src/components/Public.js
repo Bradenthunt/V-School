@@ -8,7 +8,7 @@ export default function Public() {
 
     return (
         <div className="public">
-            <h1>All Issues</h1>
+            <h1 className="public--title">All Issues</h1>
             <IssueList issues={allIssues}/>
         </div>
     )

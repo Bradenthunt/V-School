@@ -10,7 +10,7 @@ issuesRouter.get("/", (req, res, next) => {
       res.status(500)
       return next(err)
     }
-    return res.status(200).send(issues.sort())
+    return res.status(200).send(issues.sort((a, b) => b.upVotes.length - a.upVotes.length))
   })
 })
 
@@ -22,7 +22,7 @@ issuesRouter.get('/user', (req, res, next) => {
       res.status(500)
       return next(err)
     }
-    return res.status(200).send(issues)
+    return res.status(200).send(issues.sort((a, b) => b.upVotes.length - a.upVotes.length))
   })
 })
 
@@ -44,7 +44,7 @@ issuesRouter.post("/", (req, res, next) => {
 // Delete issue
 issuesRouter.delete("/:issueId", (req, res, next) => {
   Issue.findOneAndDelete(
-    { _id: req.params.todoId, user: req.auth._id },
+    { _id: req.params.issueId, user: req.auth._id },
     (err, deletedIssue) => {
       if(err){
         res.status(500)
@@ -89,7 +89,7 @@ issuesRouter.put("/:issueId", async(req, res, next) => {
   currentIssueClone.comments = req.body.comments
 
   Issue.findOneAndUpdate(
-    { _id: req.params.issueId , user: req.auth._id},
+    { _id: req.params.issueId },
     currentIssueClone,
     { returnOriginal: false },
     (err, updatedIssue) => {
@@ -101,30 +101,6 @@ issuesRouter.put("/:issueId", async(req, res, next) => {
     }
   )
 })
-
-// upvotes: [12345, 6543]
-//         downvotes: [934905]
-//         // check if we are upvoting or downvoting (boolean passed into the api req)
-//         if(data.upVote) {
-//             // check if its already upvoted by their id if so we dont care and end early CAN DO ON FRONTENND BEFORE REQ
-//             if(upvotes.includes(data.userId)){
-//                 return
-//             }
-//             // remove it from downvotes
-//             downvotes.filter(dv => dv !== userId)
-//             // add to upvotes
-//             upvotes.push(data.userId)
-//         }
-//         if(data.downvotes) {
-//             // check if already downvoted by their id if so we dont care and end early CAN DO ON FRONTEND BEFORE REQ
-//             if(downvotes.includes(data.userId)){
-//                 return
-//             }
-//             // remove it from upvotes
-//             upvotes.filter(uv => uv !== userId)
-//             //add to downvotes
-//             downvotes.push(data.userId)
-//         }
 
 
 module.exports = issuesRouter

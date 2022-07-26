@@ -41,33 +41,39 @@ export default function Auth() {
         resetAuthErr()
     }
 
+    const underlined = {
+        
+    }
+
     return (
         <div>
-            <h1>Rock the Vote</h1>
-            { !toggle ?
-                <>
-                    <AuthForm 
-                        handleChange={handleChange}
-                        handleSubmit={handleSignup}
-                        inputs={inputs}
-                        btnText="Sign Up"
-                        errMsg={errMsg}
-                    />
-                    <p onClick={toggleForm}>Already joined?</p>
-                </>
-                :
-                <>
-                    <AuthForm 
-                        handleChange={handleChange}
-                        handleSubmit={handleLogin}
-                        inputs={inputs}
-                        btnText="Log In"
-                        errMsg={errMsg}
-                    />
-                    <p onClick={toggleForm}>Haven't joined?</p>
+            <h1 className='signup--title'>Rock the Vote</h1>
+            <div className='signup--page'>
+                { !toggle ?
+                    <>
+                        <AuthForm 
+                            handleChange={handleChange}
+                            handleSubmit={handleSignup}
+                            inputs={inputs}
+                            btnText="Sign Up"
+                            errMsg={errMsg}
+                        />
+                        <p className='signup--toggle' onClick={toggleForm}>Already joined?</p>
+                    </>
+                    :
+                    <>
+                        <AuthForm 
+                            handleChange={handleChange}
+                            handleSubmit={handleLogin}
+                            inputs={inputs}
+                            btnText="Log In"
+                            errMsg={errMsg}
+                        />
+                        <p className='signup--toggle' onClick={toggleForm}>Haven't joined?</p>
 
-                </>
-            }
+                    </>
+                }   
+            </div>
         </div>
     )
 }

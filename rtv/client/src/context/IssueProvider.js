@@ -52,6 +52,15 @@ export default function IssueProvider(props) {
             .catch(err => console.log(err))
     }
 
+    const deleteIssue = (issueId) => {
+        userAxios.delete(`/api/issues/${issueId}`)
+            .then(res => {
+                getAllIssues()
+                getUserIssues()
+            })
+            .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         if(token !== '') {
             getAllIssues()
@@ -64,7 +73,8 @@ export default function IssueProvider(props) {
             allIssues,
             userIssues, 
             addIssue, 
-            updateIssue
+            updateIssue,
+            deleteIssue
         }}
         >
             {props.children}
