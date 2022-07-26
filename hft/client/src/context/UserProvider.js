@@ -3,14 +3,6 @@ import axios from 'axios'
 
 export const UserContext = React.createContext()
 
-const userAxios = axios.create()
-
-userAxios.interceptors.request.use(config => {
-    const token = localStorage.getItem('token')
-    config.headers.Authorization = `Bearer ${token}`
-    return config
-})
-
 const UserProvider = (props) => {
 
     const initState = {

@@ -1,14 +1,22 @@
 import React, { useState } from "react";
+import ExerciseList from "./ExerciseList";
 
-const Workout = () => {
+const Workout = (props) => {
 
     const [comment, setComment] = useState('')
+
+    const {
+        name,
+        description,
+        exercises,
+        _id
+    } = props
 
     return (
         <div>
             <h1>{name}</h1>
             <h3>{description}</h3>
-            <p>{exercises}</p>
+            <ExerciseList {...exercises}/>
             <form >
                 <input
                     type='text' 

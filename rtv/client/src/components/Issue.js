@@ -50,14 +50,14 @@ export default function Issue(props) {
                 {commentsToggle && <div className="comments">
                     {comments.map((comment, index) => <p key={index}>@{comment.username}: {comment.text}</p>)}
                     <form onSubmit={handleSubmit}>
-                    <input
-                        type='text' 
-                        name='text'
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                        placeholder='Comment'
-                    />
-                    <button>Add Comment</button>
+                        <input
+                            type='text' 
+                            name='text'
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                            placeholder='Comment'
+                        />
+                        <button>Add Comment</button>
                     </form>
                 </div>}
             </div>
