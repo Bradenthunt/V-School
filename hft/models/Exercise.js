@@ -7,9 +7,6 @@ const exerciseSchema = new Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String
-    },
     sets: {
         type: Number,
         required: true
@@ -18,11 +15,18 @@ const exerciseSchema = new Schema({
         type: Number,
         required: true
     },
-    workout: {
-        type: Schema.Types.ObjectId,
-        ref: "Workout",
+    weight: {
+        type: Number, 
         required: true
-    }
+    },
+    notes: {
+        type: String
+    },
+    // workout: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Workout",
+    //     required: true
+    // }
 })
 
 module.exports = mongoose.model('Exercise', exerciseSchema)

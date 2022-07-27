@@ -21,7 +21,8 @@ mongoose.connect(
 
 app.use('/auth', require('./routes/authRouter.js'))
 app.use('/api', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
-app.use('/api/workout', require('./routes/workoutRouter.js'))
+app.use('/api/workouts', require('./routes/workoutRouter.js'))
+app.use('/api/exercises', require('./routes/exerciseRouter.js'))
 
 
 app.use((err, req, res, next) => {

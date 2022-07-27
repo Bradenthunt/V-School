@@ -91,7 +91,7 @@ issuesRouter.put("/:issueId", async(req, res, next) => {
   Issue.findOneAndUpdate(
     { _id: req.params.issueId },
     currentIssueClone,
-    { returnOriginal: false },
+    { new: true },
     (err, updatedIssue) => {
       if(err){
         res.status(500)

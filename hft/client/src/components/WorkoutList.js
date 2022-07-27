@@ -7,8 +7,7 @@ const WorkoutList = (props) => {
 
     return (
         <div>
-            <p>*Workout list here*</p>
-            {workouts.map(workout => <Workout {...workouts} key={workout._id}/>)}
+            {workouts.map(workout => <Workout {...workout} key={workout._id}/>)}
         </div>
     )
 }

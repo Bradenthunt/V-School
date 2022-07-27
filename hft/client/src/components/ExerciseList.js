@@ -7,7 +7,7 @@ const ExerciseList = (props) => {
 
     return (
         <div>
-            {exercises.map(exercise => <Exercise {...exercises} key={exercise._id}/>)}
+            {exercises.map(exercise => <Exercise {...exercise} key={exercise._id}/>)}
         </div>
     )
 }

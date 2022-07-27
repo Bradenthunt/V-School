@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { WorkoutContext } from "../context/WorkoutProvider";
 
 const Exercise = (props) => {
 
+    const {deleteExercise} = useContext(WorkoutContext)
+
     const {
         name,
-        description,
+        notes,
         sets,
         reps,
+        weight,
         _id
     } = props
 
     return (
-        <div>
+        <div className="exercise">
             <h1>{name}</h1>
-            <h3>{description}</h3>
             <h3>{sets}</h3>
             <h3>{reps}</h3>
+            <h3>{weight}</h3>
+            <h3>{notes}</h3>
+            <button onClick={() => deleteExercise(_id)}>X</button>
         </div>
     )
 }

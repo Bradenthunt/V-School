@@ -18,3 +18,33 @@ code {
   align-items: center;
   height: 50px;
 }
+
+/* .workout--page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
+.workout--page--title {
+  text-align: center;
+}
+
+.exercise--form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.exercise {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.submit--workout--button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

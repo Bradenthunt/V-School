@@ -1,16 +1,56 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { WorkoutContext } from "../../context/WorkoutProvider";
+import ExerciseForm from "../ExerciseForm";
+import ExerciseList from "../ExerciseList";
 
 const Workout = () => {
 
-    const {addWorkout} = useContext(WorkoutContext)
+    const {
+        addWorkout, 
+        addExercise,
+        userExercises,
+        setUserExercises
+    } = useContext(WorkoutContext)
+
+    const [workoutName, setWorkoutName] = useState('')
+    const [workoutDescription, setWorkoutDescription] = useState('')
+
+    const submitWorkout = () => {
+        addWorkout({name: workoutName, description: workoutDescription, exercises: userExercises})
+        setUserExercises([])
+    }
+
+    const handleName = (e) => {
+        setWorkoutName(e.target.value)
+    }
+
+    const handleDescription = (e) => {
+        setWorkoutDescription(e.target.value)
+    }
+    
+
 
     return (
-        <div>
-            <h1>Workout</h1>
-            <h3>Add Exercise</h3>
-            <ExerciseForm addWorkout={addWorkout}/>
-            <ExerciseList />
+        <div className="workout--page">
+            <h1 className="workout--page--title">Workout</h1>
+            <input 
+                type="text"
+                name='name'
+                value={workoutName}
+                onChange={handleName}
+                placeholder='Name'
+            />
+            <input 
+                type="text"
+                name='description'
+                value={workoutDescription}
+                onChange={handleDescription}
+                placeholder='Description'
+            />
+            <h3 className="workout--page--title">Add Exercise</h3>
+            <ExerciseForm addExercise={addExercise}/>
+            <ExerciseList exercises={userExercises}/>
+            <button className='submit--workout--button' onClick={() => submitWorkout()}>Complete Workout</button>
         </div>
     )
 }

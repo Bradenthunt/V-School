@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function IssueForm(props) {
 
-    // Match to Issue model
     const initInputs = {
         title: '',
         description: ''
@@ -25,7 +24,6 @@ export default function IssueForm(props) {
         setInputs(initInputs)
     }
 
-    // Match to issue model
     const {title, description} = inputs
 
     return (

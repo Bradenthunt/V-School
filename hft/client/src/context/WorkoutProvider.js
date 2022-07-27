@@ -12,17 +12,20 @@ userAxios.interceptors.request.use(config => {
     return config
 })
 
-export default function WorkoutProvider(props) {
+const WorkoutProvider = (props) => {
 
     const {token} = useContext(UserContext)
 
     const [allWorkouts, setAllWorkouts] = useState([])
     const [userWorkouts, setUserWorkouts] = useState([])
 
+    const [userExercises, setUserExercises] = useState([])
+
+
+    // Workouts
     const getAllWorkouts = () => {
         userAxios.get('/api/workouts/')
             .then(res => {
-                // console.log(res.data)
                 setAllWorkouts([...res.data])
             })
             .catch(err => console.log(err.response.data.errMsg))
@@ -37,10 +40,11 @@ export default function WorkoutProvider(props) {
     const addWorkout = (newWorkout) => {
         userAxios.post('/api/workouts/', newWorkout)
             .then(res => {
-                setUserWorkouts(prevState => ([...prevState, res.data]))
-                setAllWorkouts(prevState => ([...prevState, res.data]))
+                console.log(res.data)
+                // setUserWorkouts(prevState => ([...prevState,res.data]))
+                // setAllWorkouts(prevState => ([...prevState,res.data]))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => console.log(err))
     }
 
     const updateWorkout = (workoutId, updates) => {
@@ -68,16 +72,51 @@ export default function WorkoutProvider(props) {
         }
     }, [token])
 
+    // Exercises
+    const addExercise = (newExercise) => {
+        userAxios.post('/api/exercises/', newExercise)
+            .then(res => {
+                // console.log(res.data)
+                setUserExercises(prevState => ([...prevState, res.data]))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    const getUserExercises = () => {
+        userAxios.get('/api/exercises/user')
+            .then(res => setUserExercises([...res.data]))
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    const updateExercise = (exerciseId, updates) => {
+        userAxios.put(`/api/exercises/${exerciseId}`, updates)
+            .then(res => getUserExercises())
+            .catch(err => console.log(err))
+    }
+
+    const deleteExercise = (exerciseId) => {
+        userAxios.delete(`/api/exercises/${exerciseId}`)
+            .then(res => getUserExercises())
+            .catch(err => console.log(err))
+    }
+
     return (
         <WorkoutContext.Provider value={{
             allWorkouts,
             userWorkouts, 
             addWorkout, 
             updateWorkout,
-            deleteWorkout
+            deleteWorkout,
+            userExercises,
+            addExercise,
+            getUserExercises,
+            updateExercise,
+            deleteExercise
         }}
         >
             {props.children}
         </WorkoutContext.Provider>
     )
 }
+
+export default WorkoutProvider
