@@ -6,6 +6,8 @@ const Community = () => {
 
     const {allWorkouts} = useContext(WorkoutContext)
 
+    console.log(allWorkouts)
+
     return (
         <div className="community">
             <h1 className="community--title">Community</h1>

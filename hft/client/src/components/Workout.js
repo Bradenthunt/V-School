@@ -37,7 +37,7 @@ const Workout = (props) => {
         <div>
             <h1>{name}</h1>
             <h3>{description}</h3>
-            <ExerciseList {...exercises}/>
+            {/* <ExerciseList {...exercises}/> */}
             {isAllowedOnPage && <button className='delete--button' onClick={()=> deleteWorkout(_id)}>X</button>}
             <p className="comments--toggle" onClick={() => setCommentToggle(prevState => !prevState)}>Comments</p>
             {commentToggle && <div className="comments">

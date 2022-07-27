@@ -40,9 +40,9 @@ const WorkoutProvider = (props) => {
     const addWorkout = (newWorkout) => {
         userAxios.post('/api/workouts/', newWorkout)
             .then(res => {
-                console.log(res.data)
-                // setUserWorkouts(prevState => ([...prevState,res.data]))
-                // setAllWorkouts(prevState => ([...prevState,res.data]))
+                // console.log(res.data)
+                setUserWorkouts(prevState => ([...prevState,res.data]))
+                setAllWorkouts(prevState => ([...prevState,res.data]))
             })
             .catch(err => console.log(err))
     }
@@ -108,6 +108,7 @@ const WorkoutProvider = (props) => {
             updateWorkout,
             deleteWorkout,
             userExercises,
+            setUserExercises,
             addExercise,
             getUserExercises,
             updateExercise,

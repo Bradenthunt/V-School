@@ -30,6 +30,13 @@ code {
   text-align: center;
 }
 
+.workout--page--details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .exercise--form {
   display: flex;
   justify-content: center;

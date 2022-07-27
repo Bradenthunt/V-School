@@ -33,20 +33,24 @@ const Workout = () => {
     return (
         <div className="workout--page">
             <h1 className="workout--page--title">Workout</h1>
-            <input 
-                type="text"
-                name='name'
-                value={workoutName}
-                onChange={handleName}
-                placeholder='Name'
-            />
-            <input 
-                type="text"
-                name='description'
-                value={workoutDescription}
-                onChange={handleDescription}
-                placeholder='Description'
-            />
+            <h3 className="workout--page--title">Details</h3>
+            <div className="workout--page--details">
+                <input 
+                    type="text"
+                    name='name'
+                    value={workoutName}
+                    onChange={handleName}
+                    placeholder='Name'
+                />
+                <input 
+                    type="text"
+                    name='description'
+                    value={workoutDescription}
+                    onChange={handleDescription}
+                    placeholder='Description'
+                />
+            </div>
+            
             <h3 className="workout--page--title">Add Exercise</h3>
             <ExerciseForm addExercise={addExercise}/>
             <ExerciseList exercises={userExercises}/>

@@ -10,9 +10,9 @@ const Profile = () => {
 
     return (
         <div>
-            <h1>Ready to feel the pump @{username}?!</h1>
+            <h1>@{username}, ready to feel the pump?</h1>
             <h3>Your Past Workouts</h3>
-            <WorkoutList workouts={userWorkouts}/>
+            {/* <WorkoutList workouts={userWorkouts}/> */}
         </div>
     )
 }
