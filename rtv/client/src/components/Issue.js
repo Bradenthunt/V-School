@@ -22,7 +22,7 @@ export default function Issue(props) {
     } = props
 
     const [comment, setComment] = useState('')
-    const [commentsToggle, SetCommentsToggle] = useState(false)
+    const [commentsToggle, setCommentsToggle] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()

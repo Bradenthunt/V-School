@@ -14,6 +14,9 @@ const workoutSchema = new Schema({
     exercises: {
         type: Array
     },
+    comments: {
+        type: Array
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
