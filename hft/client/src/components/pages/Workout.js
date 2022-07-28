@@ -18,6 +18,8 @@ const Workout = () => {
     const submitWorkout = () => {
         addWorkout({name: workoutName, description: workoutDescription, exercises: userExercises})
         setUserExercises([])
+        setWorkoutName('')
+        setWorkoutDescription('')
     }
 
     const handleName = (e) => {
