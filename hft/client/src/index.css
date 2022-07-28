@@ -19,12 +19,9 @@ code {
   height: 50px;
 }
 
-/* .workout--page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-} */
+.profile--title {
+  text-align: center;
+}
 
 .workout--page--title {
   text-align: center;

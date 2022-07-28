@@ -10,6 +10,7 @@ const Workout = (props) => {
     const {deleteWorkout, updateWorkout} = useContext(WorkoutContext)
 
     const location = useLocation()
+    console.log(location)
 
     const [comment, setComment] = useState('')
     const [commentToggle, setCommentToggle] = useState(false)
@@ -22,7 +23,7 @@ const Workout = (props) => {
         _id
     } = props
 
-    const isAllowedOnPage = location.pathname.includes('profile' || 'workout')
+    const isAllowedOnPage = location.pathname.includes('profile')
 
     const handleSubmit = (e) => {
         e.preventDefault()
