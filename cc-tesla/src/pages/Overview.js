@@ -114,6 +114,7 @@ export default function Overview() {
                 </div>
                 <img className="overview--vehicle--image" src={colorCars?.[carModel]?.[carColor]} />
             </div>
+            <p>PICKLES</p>
         </div>
     )
 }
