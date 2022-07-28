@@ -14,7 +14,7 @@ const AuthForm = (props) => {
     } = props
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="auth--page--form" onSubmit={handleSubmit}>
             <input 
                 type='text'
                 value={username}

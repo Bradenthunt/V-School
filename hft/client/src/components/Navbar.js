@@ -7,7 +7,7 @@ const Navbar = (props) => {
 
     const link = {
         textDecoration: 'none',
-        color: 'navy',
+        color: 'white',
         fontWeight: 'bold'
     }
 

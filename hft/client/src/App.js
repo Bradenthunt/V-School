@@ -41,7 +41,7 @@ const App = () => {
           </ProtectedRoute>}
         />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

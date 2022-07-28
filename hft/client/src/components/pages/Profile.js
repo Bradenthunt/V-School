@@ -11,7 +11,7 @@ const Profile = () => {
     return (
         <div>
             <h1 className="profile--title">@{username}, ready to feel the pump?</h1>
-            <h3 className="profile--title">Your Past Workouts</h3>
+            <h2 className="profile--title underlined">Your Past Workouts</h2>
             <WorkoutList workouts={userWorkouts}/>
         </div>
     )

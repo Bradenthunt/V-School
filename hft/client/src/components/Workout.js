@@ -10,7 +10,6 @@ const Workout = (props) => {
     const {deleteWorkout, updateWorkout} = useContext(WorkoutContext)
 
     const location = useLocation()
-    console.log(location)
 
     const [comment, setComment] = useState('')
     const [commentToggle, setCommentToggle] = useState(false)
@@ -32,13 +31,20 @@ const Workout = (props) => {
     }
 
     return (
-        <div>
-            <h1>{name}</h1>
-            <h3>{description}</h3>
-            <ExerciseList exercises={exercises}/>
-            {isAllowedOnPage && <button className='delete--button' onClick={()=> deleteWorkout(_id)}>X</button>}
+        <div className="workout">
+            <div className="workout--layout">
+               <div>
+                    <div className="workout--name-description">
+                        <h1>{name}</h1>
+                        <h3>{description}</h3>
+                    </div>
+                    <ExerciseList exercises={exercises}/>
+                </div>
+                {isAllowedOnPage && <button className='delete--button' onClick={()=> deleteWorkout(_id)}>X</button>} 
+            </div>
             <p className="comments--toggle" onClick={() => setCommentToggle(prevState => !prevState)}>Comments</p>
-            {commentToggle && <div className="comments">
+            {commentToggle && 
+                <div className="comments">
                     {comments.map((comment, index) => <p key={index}>@{comment.username}: {comment.text}</p>)}
                     <form onSubmit={handleSubmit}>
                         <input

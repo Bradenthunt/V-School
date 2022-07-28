@@ -33,7 +33,7 @@ const Workout = () => {
     return (
         <div className="workout--page">
             <h1 className="workout--page--title">Workout</h1>
-            <h3 className="workout--page--title">Details</h3>
+            <h3 className="workout--page--subtitle">Details</h3>
             <div className="workout--page--details">
                 <input 
                     type="text"
@@ -50,8 +50,7 @@ const Workout = () => {
                     placeholder='Description'
                 />
             </div>
-            
-            <h3 className="workout--page--title">Add Exercise</h3>
+            <h3 className="workout--page--subtitle">Add Exercise</h3>
             <ExerciseForm addExercise={addExercise}/>
             <ExerciseList exercises={userExercises}/>
             <button className='submit--workout--button' onClick={() => submitWorkout()}>Complete Workout</button>

@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div>
-            <p>Hypertrophied by Ohota Dev</p>
+        <div className='footer'>
+            <p className='footer--text'>Hypertrophied by Ohota Dev</p>
         </div>
     )
 }

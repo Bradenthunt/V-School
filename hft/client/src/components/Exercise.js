@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { WorkoutContext } from "../context/WorkoutProvider";
 
 const Exercise = (props) => {
 
     const {deleteExercise} = useContext(WorkoutContext)
+
+    const location = useLocation()
 
     const {
         name,
@@ -14,6 +17,8 @@ const Exercise = (props) => {
         _id
     } = props
 
+    const isAllowedOnPage = location.pathname.includes('profile')
+
     return (
         <div className="exercise">
             <h1>{name}</h1>
@@ -21,7 +26,7 @@ const Exercise = (props) => {
             <h3>{reps}</h3>
             <h3>{weight}</h3>
             <h3>{notes}</h3>
-            <button onClick={() => deleteExercise(_id)}>X</button>
+            {isAllowedOnPage && <button onClick={() => deleteExercise(_id)}>X</button>}
         </div>
     )
 }

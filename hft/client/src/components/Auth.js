@@ -43,9 +43,9 @@ export default function Auth() {
 
     return (
         <div>
-            <h1>Hunt Fitness Tracker</h1>
+            <h1 className='auth--page--title'>Hunt Fitness Tracker</h1>
             { !toggle ?
-                <>
+                <div className='auth--page--login'>
                     <AuthForm 
                         handleChange={handleChange}
                         handleSubmit={handleSignup}
@@ -53,10 +53,10 @@ export default function Auth() {
                         btnText="Sign Up"
                         errMsg={errMsg}
                     />
-                    <p onClick={toggleForm}>Already joined?</p>
-                </>
+                    <p className='auth--page--toggle' onClick={toggleForm}>Already joined?</p>
+                </div>
                 :
-                <>
+                <div className='auth--page--login'>
                     <AuthForm 
                         handleChange={handleChange}
                         handleSubmit={handleLogin}
@@ -64,9 +64,8 @@ export default function Auth() {
                         btnText="Log In"
                         errMsg={errMsg}
                     />
-                    <p onClick={toggleForm}>Haven't joined?</p>
-
-                </>
+                    <p className='auth--page--toggle' onClick={toggleForm}>Haven't joined?</p>
+                </div>
             }
         </div>
     )
