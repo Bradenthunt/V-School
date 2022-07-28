@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { Context } from "../components/Context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBullhorn, faLock, faUnlock, faLightbulb } from '@fortawesome/free-solid-svg-icons'
 
 export default function Controls() {
 
@@ -59,12 +61,16 @@ export default function Controls() {
         <div className="main--content">
             <h2 className="controls--title">Controls</h2>
             <div className="controls--container">
-                <i className="fa-solid fa-bullhorn controls" onClick={honkHorn}></i>
+                <FontAwesomeIcon icon={faBullhorn} className='controls' onClick={honkHorn}/>
+                {/* <i className="fa-solid fa-bullhorn controls" onClick={honkHorn}></i> */}
                 <div className="controls">
-                    <i className="fa-solid fa-lock lock" onClick={lockCar}></i>
-                    <i className="fa-solid fa-unlock unlock" onClick={unlockCar}></i>
+                    <FontAwesomeIcon icon={faLock} className='lock' onClick={lockCar}/>
+                    <FontAwesomeIcon icon={faUnlock} className='unlock' onClick={unlockCar}/>
+                    {/* <i className="fa-solid fa-lock lock" onClick={lockCar}></i>
+                    <i className="fa-solid fa-unlock unlock" onClick={unlockCar}></i> */}
                 </div>
-                <i className="fa-solid fa-lightbulb controls" onClick={flashLights}></i>
+                {/* <i className="fa-solid fa-lightbulb controls" onClick={flashLights}></i> */}
+                <FontAwesomeIcon icon={faLightbulb} className='controls' onClick={flashLights}/>
             </div>
         </div>
     )

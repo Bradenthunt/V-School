@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../components/Context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 export default function Climate() {
 
@@ -61,9 +63,11 @@ export default function Climate() {
         <div className="main--content">
             <h2 className="climate--title">Climate</h2>
             <div className="climate--controls">
-                <i className="fa-solid fa-angle-down controls" onClick={() => setTemp(prevTemp => prevTemp - 1)}></i>
+                <FontAwesomeIcon icon={faAngleDown} className='controls' onClick={() => setTemp(prevTemp => prevTemp - 1)}/>
+                {/* <i className="fa-solid fa-angle-down controls" onClick={() => setTemp(prevTemp => prevTemp - 1)}></i> */}
                 <h1 className="temp--number" style={{color: temp > 70 ? 'red' : 'blue'}}>{temp}</h1>
-                <i className="fa-solid fa-angle-up controls" onClick={() => setTemp(prevTemp => prevTemp + 1)}></i>
+                <FontAwesomeIcon icon={faAngleUp} className='controls' onClick={() => setTemp(prevTemp => prevTemp + 1)}/>
+                {/* <i className="fa-solid fa-angle-up controls" onClick={() => setTemp(prevTemp => prevTemp + 1)}></i> */}
             </div>
             <div className="temp--button" onClick={setTemperature}>Set Temp</div>            
         </div>
