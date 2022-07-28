@@ -26,7 +26,7 @@ const Exercise = (props) => {
             <h3>{reps}</h3>
             <h3>{weight}</h3>
             <h3>{notes}</h3>
-            {isAllowedOnPage && <button onClick={() => deleteExercise(_id)}>X</button>}
+            {/* {isAllowedOnPage && <button onClick={() => deleteExercise(_id)}>X</button>} */}
         </div>
     )
 }
