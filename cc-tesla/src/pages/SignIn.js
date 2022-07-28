@@ -55,6 +55,7 @@ export default function SignIn() {
                 <button onClick={signIn}>Sign In</button>
                 <button onClick={logOut}>Log Out</button>
             </div>
+            <p>PICKLES</p>
         </div>
     )
 }
