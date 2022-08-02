@@ -45,7 +45,7 @@ export default function Issue(props) {
                 <h3>{description}</h3>
                 {isProfilePage && <button className='delete--button' onClick={()=> deleteIssue(_id)}>X</button>}
             </div>
-            <p className="comments--toggle" onClick={() => SetCommentsToggle(prevState => !prevState)}>Comments</p>
+            <p className="comments--toggle" onClick={() => setCommentsToggle(prevState => !prevState)}>Comments</p>
             <div className="comments--center">
                 {commentsToggle && <div className="comments">
                     {comments.map((comment, index) => <p key={index}>@{comment.username}: {comment.text}</p>)}

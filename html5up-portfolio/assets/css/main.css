@@ -1685,3 +1685,9 @@ input, select, textarea {
 		font-size: 2rem;
 		vertical-align: middle;
 	}
+
+	.page--header {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
