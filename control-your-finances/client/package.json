@@ -1,5 +1,6 @@
 {
-  "name": "client",
+  "homepage": "https://control-your-finances.vercel.app",
+  "name": "control-your-finances",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
