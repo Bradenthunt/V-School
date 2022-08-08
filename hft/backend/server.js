@@ -22,7 +22,7 @@ const port = process.env.PORT || 9000
 
 
 mongoose.connect(
-    process.env.mongoURI,
+  'mongodb+srv://huntfitnesstracker:trackerfitnesshunt@hft-cluster0.aau29tm.mongodb.net/?retryWrites=true&w=majority',
   () => console.log('Connected to DB')
 )
 
