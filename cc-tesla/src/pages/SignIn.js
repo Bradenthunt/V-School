@@ -23,7 +23,7 @@ export default function SignIn() {
                 setVehicle(res.data.response[0])
                 wakeUp(res.data.response[0])
                 window.localStorage.setItem('vehicle', JSON.stringify(res.data.response[0]))
-                alert("You're all signed in!")
+                alert("You're all signed in! You can now access Overview, Controls, Climate, and Battery.")
             })
             .catch(err => {
                 console.log(err)
