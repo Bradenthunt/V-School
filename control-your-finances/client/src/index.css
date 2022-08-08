@@ -48,8 +48,8 @@ nav {
 }
 
 .overview {
-  margin-top: 20%;
-  margin-bottom: 20%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   display: flex;
   justify-content: space-around;
   align-items: center;
