@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Battery from "./pages/Battery"
@@ -24,23 +24,27 @@ export default function App() {
     <div className="App">
       <Header />
       
-      {accessToken && <nav>
-        <Link to="/" style={linkStyling}>
-          Sign In
-        </Link>
-        <Link to="/overview" style={linkStyling}>
-          Overview
-        </Link>
-        <Link to="/controls" style={linkStyling}>
-          Controls
-        </Link>
-        <Link to="/climate" style={linkStyling}>
-          Climate
-        </Link>
-        <Link to="/battery" style={linkStyling}>
-          Battery
-        </Link>
-      </nav>}
+      <nav>
+      {accessToken && 
+        <>
+          <Link to="/" style={linkStyling}>
+            Sign In
+          </Link>
+          <Link to="/overview" style={linkStyling}>
+            Overview
+          </Link>
+          <Link to="/controls" style={linkStyling}>
+            Controls
+          </Link>
+          <Link to="/climate" style={linkStyling}>
+            Climate
+          </Link>
+          <Link to="/battery" style={linkStyling}>
+            Battery
+          </Link>
+        </>
+        }
+      </nav>
       <main>
         <Routes>
           <Route 
