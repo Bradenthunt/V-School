@@ -44,6 +44,9 @@ export default function SignIn() {
     return (
         <div className="main--content">
             <div className="login--form">
+                <h1>Access Process</h1>
+                <p>Utilize CORS forwarder <a href="https://cors-anywhere.herokuapp.com/corsdemo">here</a></p>
+                <p>Add <a href="https://chrome.google.com/webstore/detail/tesla-access-token-genera/kokkedfblmfbngojkeaepekpidghjgag">Tesla Access Token Generator Chrome Extension</a></p>
                 <h2>Sign in with your Tesla Access Token</h2>
                 <input
                     type="text"

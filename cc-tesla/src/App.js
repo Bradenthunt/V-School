@@ -25,31 +25,28 @@ export default function App() {
       <Header />
       
       <nav>
-      {accessToken && 
-        <>
-          <Link to="/" style={linkStyling}>
-            Sign In
-          </Link>
-          <Link to="/overview" style={linkStyling}>
-            Overview
-          </Link>
-          <Link to="/controls" style={linkStyling}>
-            Controls
-          </Link>
-          <Link to="/climate" style={linkStyling}>
-            Climate
-          </Link>
-          <Link to="/battery" style={linkStyling}>
-            Battery
-          </Link>
-        </>
-        }
+        <Link to="/" style={linkStyling}>
+          Sign In
+        </Link>
+        <Link to="/overview" style={linkStyling}>
+          Overview
+        </Link>
+        <Link to="/controls" style={linkStyling}>
+          Controls
+        </Link>
+        <Link to="/climate" style={linkStyling}>
+          Climate
+        </Link>
+        <Link to="/battery" style={linkStyling}>
+          Battery
+        </Link>
       </nav>
+
       <main>
         <Routes>
           <Route 
             exact path='/'
-            element={accessToken ? <Navigate to='/overview'/> : <SignIn />}
+            element={<SignIn />}
           />
           <Route 
             path='/overview'

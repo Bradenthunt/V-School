@@ -16,8 +16,8 @@ app.use(morgan('dev'))
 const port = process.env.PORT || 9000
 
 
-mongoose.connect(process.env.mongoURI, () => console.log('Connected to DB'))
-
+mongoose.connect("mongodb+srv://control_your_finances:justapassword@cyf-cluster0.e8k07qw.mongodb.net/?retryWrites=true&w=majority", () => console.log('Connected to DB'))
+// process.env.mongoURI
 
 app.use('/expenses', require(path.join(__dirname, 'routes', 'expensesRouter')))
 app.use('/income', require(path.join(__dirname, "routes", "incomeRouter")))
