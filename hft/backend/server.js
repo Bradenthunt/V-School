@@ -2,13 +2,13 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({path: __dirname+'/.env'});
 }
 
+const path = require('path')
 const express = require('express')
 const app = express()
 require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const { expressjwt } = require('express-jwt')
-const path = require('path')
 
 
 process.env.SECRET
