@@ -8,6 +8,7 @@ import Controls from "./pages/Controls"
 import Overview from "./pages/Overview"
 import SignIn from "./pages/SignIn"
 import { Context } from "./components/Context"
+import ProtectedRoute from "./pages/ProtectedRoute"
 
 export default function App() {
 
