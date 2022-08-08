@@ -9,6 +9,7 @@ require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const { expressjwt } = require('express-jwt')
+const process = require('process')
 
 
 process.env.SECRET
