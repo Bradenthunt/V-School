@@ -9,7 +9,7 @@ import WorkoutProvider from './context/WorkoutProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename='/'>
     <UserProvider>
       <WorkoutProvider>
         <App />
