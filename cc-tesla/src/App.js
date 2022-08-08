@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
@@ -7,8 +7,11 @@ import Climate from "./pages/Climate"
 import Controls from "./pages/Controls"
 import Overview from "./pages/Overview"
 import SignIn from "./pages/SignIn"
+import { Context } from "./components/Context"
 
 export default function App() {
+
+  const {accessToken} = useContext(Context)
 
   const linkStyling = {
     textDecoration: 'none', 
@@ -20,7 +23,7 @@ export default function App() {
     <div className="App">
       <Header />
       
-      <nav>
+      {accessToken && <nav>
         <Link to="/" style={linkStyling}>
           Sign In
         </Link>
@@ -36,14 +39,37 @@ export default function App() {
         <Link to="/battery" style={linkStyling}>
           Battery
         </Link>
-      </nav>
+      </nav>}
       <main>
         <Routes>
-          <Route path="/" element={<SignIn />} />
-          <Route path="/overview" element={<Overview />} />
-          <Route path="/controls" element={<Controls />} />
-          <Route path="/climate" element={<Climate />} />
-          <Route path="/battery" element={<Battery />} />
+          <Route 
+            exact path='/'
+            element={accessToken ? <Navigate to='/overview'/> : <SignIn />}
+          />
+          <Route 
+            path='/overview'
+            element={<ProtectedRoute token={accessToken} redirectTo='/'>
+              <Overview />
+            </ProtectedRoute>}
+          />
+          <Route 
+            path='/controls'
+            element={<ProtectedRoute token={accessToken} redirectTo='/'>
+              <Controls />
+            </ProtectedRoute>}
+          />
+          <Route 
+            path='/climate'
+            element={<ProtectedRoute token={accessToken} redirectTo='/'>
+              <Climate />
+            </ProtectedRoute>}
+          />
+          <Route 
+            path='/battery'
+            element={<ProtectedRoute token={accessToken} redirectTo='/'>
+              <Battery />
+            </ProtectedRoute>}
+          />
         </Routes>
       </main>
 
