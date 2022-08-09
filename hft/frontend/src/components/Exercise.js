@@ -22,11 +22,11 @@ const Exercise = (props) => {
     return (
         <div className="exercise">
             <h1>{name}</h1>
-            <h3>{sets}</h3>
-            <h3>{reps}</h3>
-            <h3>{weight}</h3>
+            <h3>{sets} sets</h3>
+            <h3>{reps} reps</h3>
+            <h3>{weight}lbs</h3>
             <h3>{notes}</h3>
-            {/* {isAllowedOnPage && <button onClick={() => deleteExercise(_id)}>X</button>} */}
+            {isAllowedOnPage && <button onClick={() => deleteExercise(_id)}>X</button>}
         </div>
     )
 }
