@@ -10,6 +10,6 @@ function pestControlTotal(e) {
 
     let totalCost = goombaTotal + bobombsTotal + cheepsTotal
 
-    // document.getElementById('total').textContent = `The total cost for your requested services will be ${totalCost} coins.`
-    alert(`The total cost for your requested services will be ${totalCost} coins.`)
+    document.getElementById('total').textContent = `The total cost for your requested services will be ${totalCost} coins.`
+    // alert(`The total cost for your requested services will be ${totalCost} coins.`)
 }

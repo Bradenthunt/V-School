@@ -40,6 +40,14 @@ p {
     margin: 5px;
 }
 
+#total {
+    margin: 20px 25%;
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    font-family: monospace;
+}
+
 /* make site responsive */
 @media screen and (max-width: 600px) {
     p {
